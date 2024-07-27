@@ -41,6 +41,7 @@ HiTech Social Network is a social networking platform. The frontend is built usi
 **Frontend:**
 - [Vite](https://vitejs.dev/)
 - [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [SWC](https://swc.rs/)
 - [TailwindCSS](https://tailwindcss.com/)
