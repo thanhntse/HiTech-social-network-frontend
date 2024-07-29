@@ -9,6 +9,7 @@ import {
   Storefront,
 } from "@mui/icons-material";
 import {
+  Avatar,
   Box,
   List,
   ListItem,
@@ -17,6 +18,7 @@ import {
   ListItemText,
   PaletteMode,
   Switch,
+  Typography,
 } from "@mui/material";
 import React, { SetStateAction } from "react";
 
@@ -28,9 +30,39 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ setMode, mode }) => {
   return (
-    <Box padding={2} flex={1} sx={{ display: { xs: "none", sm: "block" } }}>
-      <Box position="fixed">
-        <List>
+    <Box className="max-w-[16.8rem] bg-white" sx={{ display: { xs: "none", sm: "block" } }}>
+      <Box className="flex gap-3 items-center px-8 py-4"
+        borderBottom={1}
+        borderColor={"#e5e7eb"}
+      >
+        <img src="./favicon.svg"
+          alt="logo"
+          className="w-10 h-10"
+        />
+        <Typography className="text-3xl font-semibold">
+          HiTech
+        </Typography>
+      </Box>
+      <Box>
+        <Box className="flex gap-4 mx-8 pt-8 pb-6"
+          borderBottom={1}
+          borderColor={"#e5e7eb"}
+        >
+          <Avatar
+            alt="Remy Sharp"
+            src="https://material-ui.com/static/images/avatar/1.jpg"
+            className="w-12 h-12"
+          />
+          <div className="flex flex-col gap-1.5">
+            <div className="font-semibold">
+              Thanh Nguyen
+            </div>
+            <div className="text-xs font-medium text-gray-500">
+              @thanhnt
+            </div>
+          </div>
+        </Box>
+        <List className="mx-8">
           <ListItem disablePadding>
             <ListItemButton component="a" href="#home">
               <ListItemIcon>
