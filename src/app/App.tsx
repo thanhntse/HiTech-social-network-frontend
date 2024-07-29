@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Box, PaletteMode, Stack, ThemeProvider, createTheme } from "@mui/material";
+import { useState } from "react";
+import { Box, Stack, ThemeProvider, createTheme } from "@mui/material";
 import Sidebar from "../components/Sidebar";
 import Feed from "../components/Feed";
 import Rightbar from "../components/Rightbar";
@@ -9,20 +9,23 @@ import Navbar from "../components/Navbar";
 function App() {
   const [mode, setMode] = useState<any>("light");
   const darkTheme = createTheme({
+    typography: {
+      fontFamily: 'Plus Jakarta Sans, sans-serif'
+    },
     palette: {
       mode: mode,
     },
   });
   return (
     <ThemeProvider theme={darkTheme}>
-      <Box bgcolor={"background.default"} color={"text.primary"}>
-        <Navbar />
+      <Box className="bg-gray-100 font-primary text-gray-800" color={"text.primary"}>
+        <Sidebar setMode={setMode} mode={mode} />
+        {/* <Navbar />
         <Stack direction="row" justifyContent="space-between" spacing={2}>
-          <Sidebar setMode={setMode} mode={mode} />
           <Feed />
           <Rightbar />
         </Stack>
-        <Add />
+        <Add /> */}
       </Box>
     </ThemeProvider>
   );
