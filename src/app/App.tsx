@@ -5,6 +5,7 @@ import Feed from "../components/Feed";
 import Rightbar from "../components/Rightbar";
 import Add from "../components/Add";
 import Navbar from "../components/Navbar";
+import Layout from "../layout/Layout";
 
 function App() {
   const [mode, setMode] = useState<any>("light");
@@ -18,15 +19,16 @@ function App() {
   });
   return (
     <ThemeProvider theme={darkTheme}>
-      <Box className="bg-gray-100 font-primary text-gray-800" color={"text.primary"}>
+      {/* <Box className="bg-gray-100 font-primary text-gray-800" color={"text.primary"}>
         <Sidebar setMode={setMode} mode={mode} />
-        {/* <Navbar />
+        <Navbar />
         <Stack direction="row" justifyContent="space-between" spacing={2}>
           <Feed />
           <Rightbar />
         </Stack>
-        <Add /> */}
-      </Box>
+        <Add />
+      </Box> */}
+      <Layout />
     </ThemeProvider>
   );
 }
