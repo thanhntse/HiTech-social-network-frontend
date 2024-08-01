@@ -107,7 +107,7 @@ export default function Sidebar({open, setClose}: Props) {
             open &&
             <IconButton
               onClick={setClose}
-              className='shadow-sm shadow-primary animate-bounce rounded-lg hover:bg-primary-light hover:text-primary w-8 h-8 -mb-2'
+              className='shadow-sm shadow-primary text-primary-txt animate-bounce rounded-lg hover:bg-primary-light hover:text-primary w-8 h-8 -mb-2'
             >
               {theme.direction === 'rtl' ? <MoveRight /> : <MoveLeft />}
             </IconButton>
@@ -129,7 +129,7 @@ export default function Sidebar({open, setClose}: Props) {
                   px: 2.5,
                   mx: 2
                 }}
-                className={`${item.id === 1 ? "bg-primary text-white" : "hover:bg-primary-light text-gray-500 hover:text-primary"} transition-all ease-in-out duration-300 rounded-md`}
+                className={`${item.id === 1 ? "bg-primary text-white" : "hover:bg-primary-light text-primary-txt hover:text-primary"} transition-all ease-in-out duration-300 rounded-md`}
               >
                 <ListItemIcon
                   sx={{

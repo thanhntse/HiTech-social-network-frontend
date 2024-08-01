@@ -23,7 +23,9 @@ export default {
       colors: {
         'primary': '#2f65b9',
         'primary-dark': '#2a5aa6',
-        'primary-light': '#eaeff8'
+        'primary-light': '#eaeff8',
+        'primary-bg': "#f8f9fa",
+        'primary-txt': "#6f7f92"
       },
       keyframes: {
         shake: {

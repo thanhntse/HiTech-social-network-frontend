@@ -57,7 +57,7 @@ const Sidebar: React.FC<SidebarProps> = ({ setMode, mode }) => {
             <div className="font-semibold">
               Thanh Nguyen
             </div>
-            <div className="text-xs font-medium text-gray-500">
+            <div className="text-xs font-medium text-primary-txt">
               @thanhnt
             </div>
           </div>

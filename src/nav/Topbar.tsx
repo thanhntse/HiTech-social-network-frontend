@@ -2,9 +2,25 @@ import { styled, useTheme } from '@mui/material/styles';
 import { drawerWidth, drawerWidthClose } from './Sidebar';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import { MoveLeft, MoveRight } from 'lucide-react';
+import {
+  Bell,
+  MoveLeft,
+  MoveRight,
+  Search,
+  Sun
+} from 'lucide-react';
+import {
+  Avatar,
+  Box,
+  FormControl,
+  InputAdornment,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  OutlinedInput
+} from '@mui/material';
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
@@ -14,6 +30,11 @@ type Props = {
   open: boolean;
   setOpen: () => void
 }
+
+const topBarItem: any[] = [
+  { id: 1, label: "About me", url: "https://github.com/thanhntse" },
+  { id: 2, label: "GitHub", url: "https://github.com/thanhntse" }
+];
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -40,7 +61,7 @@ export default function Topbar({ open, setOpen }: Props) {
   return (
     <>
       <AppBar
-        className='bg-[#fcfcfc] shadow-sm shadow-gray-100 text-gray-500'
+        className='bg-[#fcfcfc] shadow-sm shadow-gray-100 text-primary-txt'
         position="fixed"
         open={open}
       >
@@ -58,9 +79,96 @@ export default function Topbar({ open, setOpen }: Props) {
           >
             {theme.direction === 'rtl' ? <MoveLeft /> : <MoveRight />}
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
-          </Typography>
+          <Box
+            className='flex w-full justify-between items-center'
+          >
+            <List
+              className='flex justify-start items-center basis-1/5 text-sm'
+            >
+              {topBarItem.map((item) => (
+                <ListItem
+                  key={item.id}
+                  disablePadding
+                  sx={{ display: 'block' }}
+                >
+                  <ListItemButton
+                    sx={{
+                      justifyContent: open ? 'initial' : 'center',
+                    }}
+                    className={`text-primary-txt p-0 hover:text-primary hover:bg-transparent transition-all ease-in-out duration-300 rounded-md`}
+                    onClick={
+                      () => window.open(item.url, '_blank')
+                    }
+                  >
+                    <ListItemText
+                      disableTypography
+                      primary={item.label.toUpperCase()}
+                      className='font-semibold'
+                    />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+            <Box
+              className="px-10 w-full flex justify-end items-center gap-5"
+            >
+              <FormControl
+                sx={{ m: 1, width: '25ch' }}
+                variant="outlined"
+              >
+                <OutlinedInput
+                  id="outlined-adornment-search"
+                  type='text'
+                  placeholder='Search Here'
+                  className='bg-primary-bg text-sm font-medium text-primary-txt'
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <Search color='#6f7f92' size={18}/>
+                    </InputAdornment>
+                  }
+                  sx={{
+                    '& .MuiOutlinedInput-notchedOutline': {
+                      borderColor: '#e5e7eb',
+                    },
+                    '&:hover .MuiOutlinedInput-notchedOutline': {
+                      borderColor: '#e5e7eb',
+                    },
+                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                      borderColor: '#2f65b9',
+                    },
+                    '& .MuiOutlinedInput-input': {
+                      padding: '10px 12px',
+                    },
+                  }}
+                />
+              </FormControl>
+
+              <Box
+                className='flex gap-2'
+              >
+                <IconButton
+                  color='inherit'
+                  className='hover:bg-primary-light hover:text-primary'
+                >
+                  <Sun strokeWidth={1.5}/>
+                </IconButton>
+                <IconButton
+                  color='inherit'
+                  className='hover:bg-primary-light hover:text-primary'
+                >
+                  <Bell strokeWidth={1.5}/>
+                </IconButton>
+              </Box>
+
+              <Box>
+                <Avatar
+                  alt="Remy Sharp"
+                  src="https://material-ui.com/static/images/avatar/1.jpg"
+                  className="w-12 h-12"
+                />
+              </Box>
+            </Box>
+          </Box>
         </Toolbar>
       </AppBar>
     </>
