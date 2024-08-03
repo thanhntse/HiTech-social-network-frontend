@@ -4,6 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Sidebar from '../nav/Sidebar';
 import Topbar from '../nav/Topbar';
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 type Props = {
   mode: 'light' | 'dark';
@@ -55,7 +56,7 @@ export default function Layout({ mode, toggleMode }: Props) {
         <Box
           className='max-w-screen-1440 mx-auto'
         >
-
+          <Outlet />
         </Box>
       </Box>
     </Box>

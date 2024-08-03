@@ -1,13 +1,19 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { ThemeProvider, createTheme } from "@mui/material";
 import Layout from "../layout/Layout";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ScrollToTop from "../components/ScrollToTop";
+import NoPage from "../404/NoPage";
 
 function App() {
-  const [mode, setMode] = useState<any>("light");
+  const storedMode = localStorage.getItem('themeMode') || 'light';
+  const [mode, setMode] = useState<any>(storedMode);
 
   const toggleTheme = () => {
-    setMode(mode === "light" ? "dark" : "light");
+    const newMode = mode === 'light' ? 'dark' : 'light';
+    setMode(newMode);
     document.documentElement.classList.toggle('dark');
+    localStorage.setItem('themeMode', newMode);
   };
 
   const darkTheme = createTheme({
@@ -20,10 +26,22 @@ function App() {
   });
   return (
     <ThemeProvider theme={darkTheme}>
-      <Layout
-        mode={mode}
-        toggleMode={toggleTheme}
-      />
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Layout
+                mode={mode}
+                toggleMode={toggleTheme}
+              />
+            }
+          >
+            <Route path="*" element={<NoPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
   // return (
