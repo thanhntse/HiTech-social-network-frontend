@@ -1,4 +1,3 @@
-import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
@@ -10,10 +9,8 @@ const rootElement = document.getElementById('root');
 const root = ReactDOM.createRoot(rootElement!);
 
 root.render(
-  <React.StrictMode>
-    <StyledEngineProvider injectFirst>
-        <CssBaseline />
-        <App />
-    </StyledEngineProvider>
-  </React.StrictMode>,
+  <StyledEngineProvider injectFirst>
+      <CssBaseline />
+      <App />
+  </StyledEngineProvider>
 )
