@@ -5,6 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   important: '#root',
+  darkMode: 'class',
   theme: {
     screens: {
       'xs': '480px',
@@ -24,8 +25,14 @@ export default {
         'primary': '#2f65b9',
         'primary-dark': '#2a5aa6',
         'primary-light': '#eaeff8',
-        'primary-bg': "#f8f9fa",
-        'primary-txt': "#6f7f92"
+        'bg-primary-light': "#f8f9fa",
+        'bg-secondary-light': "#fff",
+        'bg-primary-dark': "#07142e",
+        'bg-secondary-dark': "#080d1e",
+        'txt-primary-light': "#6f7f92",
+        'txt-secondary-light': "#1f2937",
+        'txt-primary-dark': "#a5a8ab",
+        'txt-secondary-dark': "#fff",
       },
       keyframes: {
         shake: {
