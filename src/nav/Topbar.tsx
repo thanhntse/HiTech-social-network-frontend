@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import {
   Bell,
+  Moon,
   MoveLeft,
   MoveRight,
   Search,
@@ -28,7 +29,9 @@ interface AppBarProps extends MuiAppBarProps {
 
 type Props = {
   open: boolean;
-  setOpen: () => void
+  setOpen: () => void;
+  mode: 'light' | 'dark';
+  toggleMode: any
 }
 
 const topBarItem: any[] = [
@@ -40,6 +43,7 @@ const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })<AppBarProps>(({ theme, open }) => ({
   zIndex: theme.zIndex.drawer + 1,
+  backgroundImage: 'none',
   width: `calc(100% - ${drawerWidthClose}px)`,
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
@@ -55,13 +59,13 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-export default function Topbar({ open, setOpen }: Props) {
+export default function Topbar({ open, setOpen, mode, toggleMode }: Props) {
   const theme = useTheme();
 
   return (
     <>
       <AppBar
-        className='bg-[#fcfcfc] shadow-sm shadow-gray-100 text-primary-txt'
+        className='bg-[#fcfcfc] dark:bg-bg-secondary-dark dark:shadow-none shadow-sm shadow-gray-100 text-txt-primary-light dark:text-txt-primary-dark'
         position="fixed"
         open={open}
       >
@@ -75,12 +79,12 @@ export default function Topbar({ open, setOpen }: Props) {
               marginRight: 5,
               ...(open && { display: 'none' }),
             }}
-            className='shadow-sm shadow-primary animate-bounce rounded-lg hover:bg-primary-light hover:text-primary w-8 h-8 -mb-2'
+            className='shadow-sm shadow-primary animate-bounce rounded-lg hover:bg-primary-light hover:text-primary dark:hover:bg-bg-primary-dark dark:hover:text-white w-8 h-8 -mb-2'
           >
             {theme.direction === 'rtl' ? <MoveLeft /> : <MoveRight />}
           </IconButton>
           <Box
-            className='flex w-full justify-between items-center'
+            className='flex w-full justify-between items-center max-w-screen-1440 mx-auto'
           >
             <List
               className='flex justify-start items-center basis-1/5 text-sm'
@@ -95,7 +99,7 @@ export default function Topbar({ open, setOpen }: Props) {
                     sx={{
                       justifyContent: open ? 'initial' : 'center',
                     }}
-                    className={`text-primary-txt p-0 hover:text-primary hover:bg-transparent transition-all ease-in-out duration-300 rounded-md`}
+                    className={`text-txt-primary-light dark:text-txt-primary-dark p-0 hover:text-primary dark:hover:text-primary-dark hover:bg-transparent transition-all ease-in-out duration-300 rounded-md`}
                     onClick={
                       () => window.open(item.url, '_blank')
                     }
@@ -120,21 +124,21 @@ export default function Topbar({ open, setOpen }: Props) {
                   id="outlined-adornment-search"
                   type='text'
                   placeholder='Search Here'
-                  className='bg-primary-bg text-sm font-medium text-primary-txt'
+                  className='bg-bg-primary-light dark:bg-bg-primary-dark text-sm font-medium text-txt-primary-light dark:text-txt-primary-dark border border-gray-200 dark:border-bg-secondary-dark'
                   startAdornment={
                     <InputAdornment position="start">
-                      <Search color='#6f7f92' size={18}/>
+                      <Search className='text-txt-primary-light dark:text-txt-primary-dark' size={18}/>
                     </InputAdornment>
                   }
                   sx={{
                     '& .MuiOutlinedInput-notchedOutline': {
-                      borderColor: '#e5e7eb',
+                      borderColor: 'inherit',
                     },
                     '&:hover .MuiOutlinedInput-notchedOutline': {
-                      borderColor: '#e5e7eb',
+                      borderColor: 'inherit',
                     },
                     '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                      borderColor: '#2f65b9',
+                      borderColor: '#2a5aa6',
                     },
                     '& .MuiOutlinedInput-input': {
                       padding: '10px 12px',
@@ -148,13 +152,20 @@ export default function Topbar({ open, setOpen }: Props) {
               >
                 <IconButton
                   color='inherit'
-                  className='hover:bg-primary-light hover:text-primary'
+                  className='hover:bg-primary-light dark:hover:bg-bg-primary-dark hover:text-primary dark:hover:text-primary-dark transition-all duration-300 ease-in-out'
+                  onClick={toggleMode}
                 >
-                  <Sun strokeWidth={1.5}/>
+                  {
+                    mode === 'dark'
+                    ?
+                    <Sun strokeWidth={1.5}/>
+                    :
+                    <Moon strokeWidth={1.5}/>
+                  }
                 </IconButton>
                 <IconButton
                   color='inherit'
-                  className='hover:bg-primary-light hover:text-primary'
+                  className='hover:bg-primary-light dark:hover:bg-bg-primary-dark hover:text-primary dark:hover:text-primary-dark transition-all duration-300 ease-in-out'
                 >
                   <Bell strokeWidth={1.5}/>
                 </IconButton>

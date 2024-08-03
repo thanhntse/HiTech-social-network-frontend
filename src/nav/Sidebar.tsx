@@ -40,6 +40,7 @@ const openedMixin = (theme: Theme): CSSObject => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: 'hidden',
+  backgroundColor: 'inherit',
   border: 0
 });
 
@@ -50,6 +51,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: 'hidden',
+  backgroundColor: 'inherit',
   border: 0
 });
 
@@ -87,7 +89,7 @@ export default function Sidebar({open, setClose}: Props) {
       <Drawer
         variant="permanent"
         open={open}
-        className='z-10 shadow-2xl shadow-gray-200'
+        className='z-10 shadow-2xl shadow-gray-200 dark:bg-bg-secondary-dark dark:shadow-none'
       >
         <DrawerHeader>
           <Box className={`flex gap-3 items-center ${open ? "pl-6" : "pl-4"}`}
@@ -98,7 +100,7 @@ export default function Sidebar({open, setClose}: Props) {
             />
             {
               open &&
-              <Typography className="text-3xl font-semibold">
+              <Typography className="text-3xl font-semibold text-gray-800 dark:text-white">
                 HiTech
               </Typography>
             }
@@ -107,7 +109,7 @@ export default function Sidebar({open, setClose}: Props) {
             open &&
             <IconButton
               onClick={setClose}
-              className='shadow-sm shadow-primary text-primary-txt animate-bounce rounded-lg hover:bg-primary-light hover:text-primary w-8 h-8 -mb-2'
+              className='shadow-sm shadow-primary text-txt-primary-light dark:text-txt-primary-dark animate-bounce rounded-lg hover:bg-primary-light hover:text-primary dark:hover:bg-bg-primary-dark dark:hover:text-white w-8 h-8 -mb-2'
             >
               {theme.direction === 'rtl' ? <MoveRight /> : <MoveLeft />}
             </IconButton>
@@ -129,7 +131,7 @@ export default function Sidebar({open, setClose}: Props) {
                   px: 2.5,
                   mx: 2
                 }}
-                className={`${item.id === 1 ? "bg-primary text-white" : "hover:bg-primary-light text-primary-txt hover:text-primary"} transition-all ease-in-out duration-300 rounded-md`}
+                className={`${item.id === 1 ? "bg-primary text-white" : "hover:bg-primary-light text-txt-primary-light hover:text-primary dark:text-txt-primary-dark dark:hover:bg-bg-primary-dark dark:hover:text-white"} transition-all ease-in-out duration-300 rounded-md`}
               >
                 <ListItemIcon
                   sx={{

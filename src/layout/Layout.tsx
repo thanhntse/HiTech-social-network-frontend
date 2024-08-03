@@ -6,6 +6,11 @@ import Sidebar from '../nav/Sidebar';
 import Topbar from '../nav/Topbar';
 import React from 'react';
 
+type Props = {
+  mode: 'light' | 'dark';
+  toggleMode: any
+}
+
 const HeaderSpacing = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
@@ -15,7 +20,7 @@ const HeaderSpacing = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-export default function Layout() {
+export default function Layout({ mode, toggleMode }: Props) {
   const [open, setOpen] = React.useState(true);
 
   const handleDrawerOpen = () => {
@@ -35,13 +40,15 @@ export default function Layout() {
       <Topbar
         open={open}
         setOpen={handleDrawerOpen}
+        mode={mode}
+        toggleMode={toggleMode}
       />
       <Sidebar
         open={open}
         setClose={handleDrawerClose}
       />
       <Box
-        className='bg-[#f8f9fa]'
+        className='bg-bg-primary-light dark:bg-bg-primary-dark text-gray-800 dark:text-white'
         component="main"
         sx={{ flexGrow: 1, p: 3 }}
       >
