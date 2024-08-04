@@ -1,5 +1,6 @@
 import {  useState } from "react";
 import { ThemeProvider, createTheme } from "@mui/material";
+import '../config/i18n';
 import Layout from "../layout/Layout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "../components/ScrollToTop";

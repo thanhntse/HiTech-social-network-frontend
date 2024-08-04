@@ -19,11 +19,11 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: lang || 'en', // Ngôn ngữ mặc định
-    fallbackLng: 'en', // Ngôn ngữ dự phòng nếu không tìm thấy bản dịch
+    lng: lang || 'en',
+    fallbackLng: 'en',
 
     interpolation: {
-      escapeValue: false // React đã tự động chống XSS
+      escapeValue: false
     }
   });
 

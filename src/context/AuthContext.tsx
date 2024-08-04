@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
 import { jwtDecode, JwtPayload } from 'jwt-decode';
-import axiosInstance from '../config/axiosConfig';
+import axiosInstance from '../config/AxiosConfig';
 
 interface AuthState {
   isLogin: boolean;
