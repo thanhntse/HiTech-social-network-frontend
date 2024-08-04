@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
 import { jwtDecode, JwtPayload } from 'jwt-decode';
-import axiosInstance from '../config/AxiosConfig';
+import $axios from '../config/AxiosConfig';
 
 interface AuthState {
   isLogin: boolean;
@@ -133,7 +133,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       if (isTokenNearlyExpired(state.token)) {
         dispatch({ type: 'START_LOADING' });
 
-        await axiosInstance.post(`/courtstar/auth/refresh`, { token: state.token })
+        await $axios.post(`/courtstar/auth/refresh`, { token: state.token })
           .then(res => {
             const dataObj = res.data;
             const newToken = dataObj.data.token;
@@ -143,7 +143,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             dispatch({ type: 'REFRESH_TOKEN', payload: { token: newToken, role: role } });
 
             // Fetch account details with the new token
-            axiosInstance.get('/courtstar/account/myInfor')
+            $axios.get('/courtstar/account/myInfor')
               .then(res => {
                 dispatch({ type: 'SET_ACCOUNT', payload: res.data.data });
               })
