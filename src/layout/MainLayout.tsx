@@ -20,7 +20,7 @@ const HeaderSpacing = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-export default function Layout({ mode, toggleMode }: Props) {
+export default function MainLayout({ mode, toggleMode }: Props) {
   const [open, setOpen] = React.useState(true);
 
   const handleDrawerOpen = () => {
