@@ -1,10 +1,14 @@
 import {  useState } from "react";
 import { ThemeProvider, createTheme } from "@mui/material";
 import '../config/i18n';
-import Layout from "../layout/Layout";
+import MainLayout from "../layout/MainLayout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "../components/ScrollToTop";
 import NoPage from "../404/NoPage";
+import AuthLayout from "../layout/AuthLayout";
+import Login from "../auth/Login";
+import Register from "../auth/Register";
+import ForgotPassword from "../auth/ForgotPassword";
 
 function App() {
   const storedMode = localStorage.getItem('themeMode') || 'light';
@@ -30,17 +34,31 @@ function App() {
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
+
           <Route
             path="/"
             element={
-              <Layout
+              <MainLayout
                 mode={mode}
                 toggleMode={toggleTheme}
               />
             }
           >
-            <Route path="*" element={<NoPage />} />
           </Route>
+
+          <Route
+            path="/auth"
+            element={
+              <AuthLayout />
+            }
+          >
+            <Route path="/auth/login" element={<Login />} />
+            <Route path="/auth/register" element={<Register />} />
+            <Route path="/auth/forgotPassword" element={<ForgotPassword />} />
+          </Route>
+
+          <Route path="*" element={<NoPage />} />
+
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
