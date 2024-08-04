@@ -40,6 +40,11 @@ export default {
           "10%, 30%, 50%, 70%, 90%": { transform: "translate3d(-10px, 0, 0)" },
           "20%, 40%, 60%, 80%": { transform: "translate3d(10px, 0, 0)" },
         },
+        expand: {
+          '0%': { transform: 'scale(0.75)' },
+          '50%': { transform: 'scale(1.25)' },
+          '100%': { transform: 'scale(0.75)' },
+        },
         "fade-in-up": {
           from: { opacity: 0, transform: "translate3d(0, 100%, 0)" },
           to: { opacity: 1, transform: "none" },
@@ -110,6 +115,7 @@ export default {
       },
       animation: {
         shake: "shake 500ms ease-in-out",
+        expand: 'expand 8s infinite ease-in-out',
         "fade-in-up-fast": "fade-in-up 150ms ease-in-out",
         "fade-out-down-fast": "fade-out-down 150ms ease-in-out",
         "fade-in-down": "fade-in-down 250ms ease-in-out",
