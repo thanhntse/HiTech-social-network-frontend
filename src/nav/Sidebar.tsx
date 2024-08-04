@@ -17,6 +17,7 @@ import {
   SquareActivity,
   Users
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   open: boolean;
@@ -27,10 +28,10 @@ export const drawerWidth = 270;
 export const drawerWidthClose = 88;
 
 const sideBarItem: any[] = [
-  { id: 1, label: "Activity", icon: <SquareActivity /> },
-  { id: 2, label: "Friends", icon: <Users /> },
-  { id: 3, label: "Messages", icon: <MessageCircleMore /> },
-  { id: 4, label: "Groups", icon: <HeartHandshake /> }
+  { id: 1, label: "activity", icon: <SquareActivity /> },
+  { id: 2, label: "friends", icon: <Users /> },
+  { id: 3, label: "messages", icon: <MessageCircleMore /> },
+  { id: 4, label: "groups", icon: <HeartHandshake /> }
 ];
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -83,6 +84,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function Sidebar({open, setClose}: Props) {
   const theme = useTheme();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -145,7 +147,7 @@ export default function Sidebar({open, setClose}: Props) {
                 </ListItemIcon>
                 <ListItemText
                   disableTypography
-                  primary={item.label}
+                  primary={t(item.label)}
                   sx={{ display: open ? 'block' : 'none' }}
                   className='font-semibold'
                 />

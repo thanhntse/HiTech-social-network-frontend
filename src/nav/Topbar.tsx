@@ -22,6 +22,8 @@ import {
   ListItemText,
   OutlinedInput
 } from '@mui/material';
+import LanguageSelector from '../components/LanguageSelector';
+import { useTranslation } from 'react-i18next';
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
@@ -35,7 +37,7 @@ type Props = {
 }
 
 const topBarItem: any[] = [
-  { id: 1, label: "About me", url: "https://github.com/thanhntse" },
+  { id: 1, label: "aboutMe", url: "https://github.com/thanhntse" },
   { id: 2, label: "GitHub", url: "https://github.com/thanhntse" }
 ];
 
@@ -61,6 +63,7 @@ const AppBar = styled(MuiAppBar, {
 
 export default function Topbar({ open, setOpen, mode, toggleMode }: Props) {
   const theme = useTheme();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -87,7 +90,7 @@ export default function Topbar({ open, setOpen, mode, toggleMode }: Props) {
             className='flex w-full justify-between items-center max-w-screen-1440 mx-auto'
           >
             <List
-              className='flex justify-start items-center basis-1/5 text-sm'
+              className='flex justify-start items-center basis-1/6 text-sm'
             >
               {topBarItem.map((item) => (
                 <ListItem
@@ -106,7 +109,7 @@ export default function Topbar({ open, setOpen, mode, toggleMode }: Props) {
                   >
                     <ListItemText
                       disableTypography
-                      primary={item.label.toUpperCase()}
+                      primary={t(item.label).toUpperCase()}
                       className='font-semibold'
                     />
                   </ListItemButton>
@@ -123,7 +126,7 @@ export default function Topbar({ open, setOpen, mode, toggleMode }: Props) {
                 <OutlinedInput
                   id="outlined-adornment-search"
                   type='text'
-                  placeholder='Search Here'
+                  placeholder={t('searchHere')}
                   className='bg-bg-primary-light dark:bg-bg-primary-dark text-sm font-medium text-txt-primary-light dark:text-txt-primary-dark border border-gray-200 dark:border-bg-secondary-dark'
                   startAdornment={
                     <InputAdornment position="start">
@@ -169,6 +172,9 @@ export default function Topbar({ open, setOpen, mode, toggleMode }: Props) {
                 >
                   <Bell strokeWidth={1.5}/>
                 </IconButton>
+
+                <LanguageSelector />
+
               </Box>
 
               <Box>
