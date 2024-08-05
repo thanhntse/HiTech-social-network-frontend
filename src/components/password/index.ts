@@ -12,6 +12,7 @@ export interface PasswordProps {
   placeholder?: string;
   onchange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   value?: string;
+  disabled?: boolean;
   evaluate?: boolean;
   error?: boolean;
   errorMsg?: string;

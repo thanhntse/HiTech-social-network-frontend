@@ -11,6 +11,7 @@ export interface InputTextProps {
   type?: 'text' | 'number';
   error?: boolean;
   errorMsg?: string;
+  icon?: React.ReactNode
 }
 
 export default InputText;
