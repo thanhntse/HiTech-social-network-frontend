@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import eye from '../../assets/images/eye.svg';
-import eyeoff from '../../assets/images/hide-eye.svg';
 import { PasswordStrengthProps, PasswordProps } from './index'
+import { IconButton, InputAdornment, TextField } from '@mui/material';
+import ErrorIcon from '@mui/icons-material/Error';
+import { Eye, EyeOff, LockKeyhole } from 'lucide-react';
 
 const PasswordStrength: React.FC<PasswordStrengthProps> = ({ password, evaluate }) => {
   const calculateScore = (password: string | undefined) => {
@@ -58,43 +59,59 @@ const Password: React.FC<PasswordProps> = (props) => {
   };
 
   return (
-    <div className="w-full flex flex-col font-medium gap-2 text-gray-800">
-      <div className='flex justify-between items-center'>
-        <label
-          htmlFor={props.id}
-          className='font-semibold'
-        >
-          {props.label}
-        </label>
-        <div className='px-1.5'
-          onClick={toggleShowPassword}
-        >
-          {
-            showPassword
-              ?
-              (<img src={eyeoff} alt="eye-off" />)
-              :
-              (<img src={eye} alt="eye" />)
-          }
-        </div>
-      </div>
-      <input
-        type={showPassword ? "text" : "password"}
+    <div className="w-full flex flex-col gap-2">
+      <label htmlFor={props.id} className="text-gray-800 dark:text-white font-bold">
+        {props.label}
+      </label>
+      <TextField
         name={props.name}
+        type={showPassword ? "text" : "password"}
         id={props.id}
-        className={`w-full py-2.5 px-6 border rounded-lg placeholder:text-sm placeholder:font-normal  ${props.error ? 'border-red-500 animate-shake outline-red-400 placeholder:text-red-500' : 'border-gray-300 outline-gray-400'}`}
         placeholder={props.placeholder}
         onChange={props.onchange}
         value={props.value}
+        disabled={props.disabled}
+        error={props.error}
+        helperText={props.error && props.errorMsg}
+        variant="outlined"
+        fullWidth
+        InputProps={{
+          className: 'rounded-md bg-gray-100 dark:bg-bg-secondary-dark shadow-md border border-transparent',
+          classes: {
+            notchedOutline: props.error ? 'border-red-500 dark:border-red-600' : 'border-inherit',
+            focused: 'border-primary dark:border-primary-dark',
+            input: 'py-3.5 font-medium text-gray-800 dark:text-white',
+          },
+          startAdornment: (
+
+              <InputAdornment position="start">
+                <IconButton edge="start" disabled className='text-gray-800 dark:text-white'>
+
+                  {props.error ? (<ErrorIcon className="text-red-500" />) : <LockKeyhole /> }
+
+                </IconButton>
+              </InputAdornment>
+          ),
+          endAdornment: (
+
+            <InputAdornment position="end">
+              <IconButton
+                edge="end"
+                className='text-gray-800 dark:text-white'
+                onClick={toggleShowPassword}
+              >
+
+                { showPassword ?  <EyeOff/> : <Eye/> }
+
+              </IconButton>
+            </InputAdornment>
+        ),
+        }}
+        FormHelperTextProps={{
+          className: 'text-red-500 text-xs font-semibold mt-1',
+        }}
+        className={`${props.error ? 'animate-shake' : ''}`}
       />
-      {props.error
-        ?
-        <div className='text-red-500 text-xs font-semibold text-end -mt-2 animate-shake'>
-          {props.errorMsg}
-        </div>
-        :
-        <PasswordStrength password={props.value} evaluate={props.evaluate} />
-      }
     </div>
   );
 };
