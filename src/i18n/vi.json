@@ -25,5 +25,14 @@
   "firstName": "Tên",
   "backToSignIn": "Quay về đăng nhập?",
   "sendOtpCode": "Gửi mã OTP",
-  "confirm": "Xác nhận"
+  "confirm": "Xác nhận",
+  "resetPassword": "Đặt lại mật khẩu",
+  "weSent": "Chúng tôi đã gửi mã xác nhận đến ",
+  "enterDigit": "Nhập mật mã gồm 6 chữ số đã được gửi",
+  "enterYourConfirmPassword": "Nhập lại mật khẩu mới",
+  "confirmPassword": "Xác nhận mật khẩu",
+  "enterYourNewPassword": "Nhập mật khẩu mới",
+  "newPassword": "Mật khẩu mới",
+  "haventReceivedEmailYet": "Chưa nhận được email?",
+  "resend": "Gửi lại"
 }

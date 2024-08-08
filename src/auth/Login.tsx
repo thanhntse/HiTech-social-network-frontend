@@ -122,6 +122,9 @@ const Login = ({ }: Props) => {
           <Button
             fullWidth
             size='large'
+            onClick={
+              () => navigate('/activity')
+            }
             // loading
             // variant='outlined'
           >

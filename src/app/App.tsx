@@ -11,6 +11,10 @@ import Register from "../auth/Register";
 import ForgotPassword from "../auth/fogot-password/ForgotPassword";
 import Email from "../auth/fogot-password/Email";
 import Otp from "../auth/fogot-password/Otp";
+import Activity from "../pages/activity/Activity";
+import Friend from "../pages/friend/Friend";
+import Group from "../pages/group/Group";
+import Message from "../pages/message/Message";
 
 function App() {
   const storedMode = localStorage.getItem('themeMode') || 'light';
@@ -49,6 +53,10 @@ function App() {
               />
             }
           >
+            <Route path="/activity" element={<Activity />} />
+            <Route path="/friend" element={<Friend />} />
+            <Route path="/group" element={<Group />} />
+            <Route path="/message" element={<Message />} />
           </Route>
 
           <Route
