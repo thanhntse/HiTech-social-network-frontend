@@ -25,5 +25,14 @@
   "firstName": "First Name",
   "backToSignIn": "Back to sign in?",
   "sendOtpCode": "Send OTP code",
-  "confirm": "Confirm"
+  "confirm": "Confirm",
+  "resetPassword": "Reset password",
+  "weSent": "We just sent a verification code to ",
+  "enterDigit": "Enter the 6-digit code mentioned in the email!",
+  "enterYourConfirmPassword": "Enter your confirm password",
+  "confirmPassword": "Confirm Password",
+  "enterYourNewPassword": "Enter your new password",
+  "newPassword": "New Password",
+  "haventReceivedEmailYet": "Haven't received email yet?",
+  "resend": "Resend"
 }

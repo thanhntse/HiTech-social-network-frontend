@@ -18,6 +18,7 @@ import {
   Users
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 type Props = {
   open: boolean;
@@ -28,10 +29,10 @@ export const drawerWidth = 270;
 export const drawerWidthClose = 88;
 
 const sideBarItem: any[] = [
-  { id: 1, label: "activity", icon: <SquareActivity /> },
-  { id: 2, label: "friends", icon: <Users /> },
-  { id: 3, label: "messages", icon: <MessageCircleMore /> },
-  { id: 4, label: "groups", icon: <HeartHandshake /> }
+  { id: 1, label: "activity", path: "/activity", icon: <SquareActivity /> },
+  { id: 2, label: "friends", path: "/friend", icon: <Users /> },
+  { id: 3, label: "messages", path: "/message", icon: <MessageCircleMore /> },
+  { id: 4, label: "groups", path: "/group", icon: <HeartHandshake /> }
 ];
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -126,32 +127,43 @@ export default function Sidebar({open, setClose}: Props) {
               sx={{ display: 'block' }}
               className='mb-1.5'
             >
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                  mx: 2
-                }}
-                className={`${item.id === 1 ? "bg-primary text-white" : "hover:bg-primary-light text-txt-primary-light hover:text-primary dark:text-txt-primary-dark dark:hover:bg-bg-primary-dark dark:hover:text-white"} transition-all ease-in-out duration-300 rounded-md`}
+              <NavLink
+                to={item.path}
+                style={() => ({
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  display: 'block',
+                })}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 2 : 0,
-                    justifyContent: 'center',
-                    color: 'inherit'
-                  }}
-                >
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText
-                  disableTypography
-                  primary={t(item.label)}
-                  sx={{ display: open ? 'block' : 'none' }}
-                  className='font-semibold'
-                />
-              </ListItemButton>
+                {({ isActive }) => (
+                  <ListItemButton
+                    sx={{
+                      minHeight: 48,
+                      justifyContent: open ? 'initial' : 'center',
+                      px: 2.5,
+                      mx: 2
+                    }}
+                    className={`${isActive ? "bg-primary text-white" : "hover:bg-primary-light text-txt-primary-light hover:text-primary dark:text-txt-primary-dark dark:hover:bg-bg-primary-dark dark:hover:text-white"} transition-all ease-in-out duration-300 rounded-md`}
+                  >
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 2 : 0,
+                        justifyContent: 'center',
+                        color: 'inherit'
+                      }}
+                    >
+                      {item.icon}
+                    </ListItemIcon>
+                    <ListItemText
+                      disableTypography
+                      primary={t(item.label)}
+                      sx={{ display: open ? 'block' : 'none' }}
+                      className='font-semibold'
+                    />
+                  </ListItemButton>
+                )}
+              </NavLink>
             </ListItem>
           ))}
         </List>

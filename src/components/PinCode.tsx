@@ -2,14 +2,14 @@ import React, { useEffect, useRef } from 'react';
 import PinInput from 'react-pin-input';
 
 interface PinCodeProps {
-  clear: boolean;
+  clear?: boolean;
   value: string;
-  onChange: (value: string) => void;
-  onComplete: (value: string) => void;
+  onChange: any;
+  onComplete?: any;
 }
 
 const PinCode: React.FC<PinCodeProps> = (props) => {
-  const pinRef = useRef<any>(null); // Sử dụng useRef với kiểu any do PinInput không cung cấp kiểu tham chiếu chính xác
+  const pinRef = useRef<any>(null);
 
   useEffect(() => {
     if (props.clear && pinRef.current) {
@@ -26,17 +26,21 @@ const PinCode: React.FC<PinCodeProps> = (props) => {
       type="numeric"
       inputMode="numeric"
       style={{
-        padding: '18px',
+        padding: '0 18px',
         display: 'flex',
         justifyContent: 'space-evenly',
         gap: '5px'
       }}
       inputStyle={{
-        borderColor: '#e5e7eb',
+        borderColor: 'inherit',
         borderWidth: '2px',
         borderRadius: '6px',
+        fontSize: '16px',
+        fontWeight: '600',
+        fontFamily: 'Plus Jakarta Sans, sans-serif',
+        color: 'inherit'
       }}
-      inputFocusStyle={{ borderColor: '#6b7280' }}
+      inputFocusStyle={{ borderColor: '#2f65b9' }}
       onComplete={props.onComplete}
       autoSelect={true}
       regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
