@@ -8,7 +8,9 @@ import NoPage from "../404/NoPage";
 import AuthLayout from "../layout/AuthLayout";
 import Login from "../auth/Login";
 import Register from "../auth/Register";
-import ForgotPassword from "../auth/ForgotPassword";
+import ForgotPassword from "../auth/fogot-password/ForgotPassword";
+import Email from "../auth/fogot-password/Email";
+import Otp from "../auth/fogot-password/Otp";
 
 function App() {
   const storedMode = localStorage.getItem('themeMode') || 'light';
@@ -52,12 +54,18 @@ function App() {
           <Route
             path="/auth"
             element={
-              <AuthLayout />
+              <AuthLayout
+                mode={mode}
+                toggleMode={toggleTheme}
+              />
             }
           >
             <Route path="/auth/login" element={<Login />} />
             <Route path="/auth/register" element={<Register />} />
-            <Route path="/auth/forgotPassword" element={<ForgotPassword />} />
+            <Route path="/auth/forgotPassword" element={<ForgotPassword />}>
+              <Route path="/auth/forgotPassword/email" element={<Email />} />
+              <Route path="/auth/forgotPassword/otp" element={<Otp />} />
+            </Route>
           </Route>
 
           <Route path="*" element={<NoPage />} />

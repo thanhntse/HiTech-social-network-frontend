@@ -55,7 +55,7 @@ const Login = ({ }: Props) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-5">
+    <div className="min-h-screen flex items-center justify-center p-5 animate-fade-in-slow">
       <Box
         className="flex flex-col gap-10 w-full"
       >
@@ -111,6 +111,9 @@ const Login = ({ }: Props) => {
             <Button
               variant='text'
               className='italic'
+              onClick={
+                () => navigate('/auth/forgotPassword/email')
+              }
             >
               {t('forgotPassword')}
             </Button>
@@ -137,6 +140,9 @@ const Login = ({ }: Props) => {
           <Button
             variant='text'
             className='text-base'
+            onClick={
+              () => navigate('/auth/register')
+            }
           >
             {t('signUp')}
           </Button>

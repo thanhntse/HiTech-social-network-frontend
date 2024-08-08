@@ -17,5 +17,13 @@
   "forgotPassword": "Forgot Password?",
   "signIn": "Sign In",
   "dontHaveAnAccount": "Don't have an account?",
-  "signUp": "Sign Up"
+  "signUp": "Sign Up",
+  "alreadyHaveAnAccount": "Already have an account?",
+  "enterYourFirstName": "Enter your first name",
+  "enterYourLastName": "Enter your last name",
+  "lastName": "Last Name",
+  "firstName": "First Name",
+  "backToSignIn": "Back to sign in?",
+  "sendOtpCode": "Send OTP code",
+  "confirm": "Confirm"
 }

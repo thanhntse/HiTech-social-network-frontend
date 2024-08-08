@@ -17,5 +17,13 @@
   "forgotPassword": "Quên mật khẩu?",
   "signIn": "Đăng nhập",
   "dontHaveAnAccount": "Chưa có tài khoản?",
-  "signUp": "Đăng ký"
+  "signUp": "Đăng ký",
+  "alreadyHaveAnAccount": "Đã có tài khoản?",
+  "enterYourFirstName": "Nhập tên của bạn",
+  "enterYourLastName": "Nhập họ của bạn",
+  "lastName": "Họ",
+  "firstName": "Tên",
+  "backToSignIn": "Quay về đăng nhập?",
+  "sendOtpCode": "Gửi mã OTP",
+  "confirm": "Xác nhận"
 }
