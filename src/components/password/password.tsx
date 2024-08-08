@@ -39,14 +39,6 @@ const PasswordStrength: React.FC<PasswordStrengthProps> = ({ password, evaluate 
   return (
     evaluate && <div className="relative px-1 w-full -mt-1">
       <div className={`h-1 rounded-full transition-all ease-in-out duration-300 ${scoreParseBg[score]}`} />
-      <div className={`absolute pl-1.5 py-1 -top-10 right-2 bg-white z-10 font-normal text-gray-500 text-sm`}>
-        {
-          score >= 4 ? 'Very Strong' :
-            score >= 3 ? 'Strong' :
-              score >= 2 ? 'Average' :
-                score >= 1 ? 'Weak' : ''
-        }
-      </div>
     </div>
   );
 };
@@ -79,7 +71,7 @@ const Password: React.FC<PasswordProps> = (props) => {
           className: 'rounded-md bg-gray-100 dark:bg-bg-secondary-dark shadow-md border border-transparent',
           classes: {
             notchedOutline: props.error ? 'border-red-500 dark:border-red-600' : 'border-inherit',
-            focused: 'border-primary dark:border-primary-dark',
+            focused: '!border-primary dark:border-primary-dark',
             input: 'py-3.5 font-medium text-gray-800 dark:text-white',
           },
           startAdornment: (
@@ -111,6 +103,11 @@ const Password: React.FC<PasswordProps> = (props) => {
           className: 'text-red-500 text-xs font-semibold mt-1',
         }}
         className={`${props.error ? 'animate-shake' : ''}`}
+      />
+
+      <PasswordStrength
+        evaluate={props.evaluate}
+        password={props.value}
       />
     </div>
   );

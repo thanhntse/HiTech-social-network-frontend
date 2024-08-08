@@ -1,71 +1,49 @@
-import { useRef, MouseEvent } from 'react';
-import SpinnerLoading from '../../components/SpinnerLoading';
-import {ButtonProps} from './index';
-import './button.css';
+import React from 'react';
+import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
+import { ButtonProps } from './index';
+import { Box } from '@mui/material';
 
-const Button = (props: ButtonProps): JSX.Element => {
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-      if (buttonRef.current) {
-          const button = buttonRef.current;
-          const ripple = document.createElement('span');
-          const rect = button.getBoundingClientRect();
-          const diameter = Math.max(rect.width, rect.height);
-          const radius = diameter / 2;
-
-          ripple.style.width = ripple.style.height = `${diameter}px`;
-          ripple.style.left = `${event.clientX - rect.left - radius}px`;
-          ripple.style.top = `${event.clientY - rect.top - radius}px`;
-          ripple.classList.add('ripple');
-
-          const prevRipple = button.querySelector('.ripple');
-          if (prevRipple) {
-              button.removeChild(prevRipple);
-          }
-
-          button.appendChild(ripple);
-          setTimeout(() => {
-              button.removeChild(ripple);
-          }, 500);
-
-          if(props.onClick) props.onClick();
-      }
-  };
-
-  const btnClass =  (props.fullWidth ? ' !w-full ' : ' ') +
-                    (props.fullRounded ? ' !rounded-full ' : ' ') +
-                    (props.size === 'small' ? ' !py-1 !px-3 '
-                      : props.size === 'medium' ? ' py-2.5 px-6 '
-                      : props.size === 'large' ? ' !py-3 !px-8 '
-                      : props.size === 'mini' ? ' !py-1 !px-2 ' : '');
-
+const CustomButton: React.FC<ButtonProps> = ({
+  variant = 'contained',
+  type = 'button',
+  size = 'medium',
+  fullWidth = false,
+  fullRounded = false,
+  className,
+  disabled = false,
+  loading = false,
+  icon,
+  children,
+  onClick,
+  ...rest
+}) => {
   return (
-    <button
-      ref={buttonRef}
-      className={btnClass + props.className + ' relative overflow-hidden flex gap-3 items-center justify-center font-medium disabled:bg-opacity-80 disabled:pointer-events-none rounded-md transition-colors duration-300 ease-in-out '}
-      type={props.type}
-      disabled={props.loading || props.disabled}
-      onClick={handleClick}
+    <Button
+      variant={variant}
+      type={type}
+      size={size}
+      fullWidth={fullWidth}
+      startIcon={icon}
+      className={`${ (disabled || loading)? " bg-opacity-70 pointer-events-none " : " "} + ${className} + ${fullRounded ? " rounded-full " : ""}`}
+      onClick={onClick}
+      sx={{
+        textTransform: 'none'
+      }}
+      {...rest}
     >
-      {props.loading ? (
-        <SpinnerLoading
-          type='button'
-          height={props.loadingHeight ? props.loadingHeight : '24'}
-          width={props.loadingWidth ? props.loadingWidth : '24'}
-          color={props.loadingColor ? props.loadingColor : '#fff'}
-        />
-      ) : (
-        <>
-          {props.icon && (
-            <div className={`${props.iconClass} w-5`}>
-              {props.icon}
-            </div>
-          )}
-          {props.label}
-        </>
-      )}
-    </button>
+      {loading ?
+        <Box
+          className={`text-inherit flex justify-center items-center ${size === 'large' ? "h-[26.25px]" : size === 'medium' ? "h-[24.5px]" : "h-[22.75px]"}`}
+        >
+          <CircularProgress
+            size={size === 'large' ? 20: size === 'medium' ? 18 : 16}
+            color='inherit'
+          />
+        </Box>
+      : children}
+    </Button>
   );
 };
 
-export default Button;
+export default CustomButton;

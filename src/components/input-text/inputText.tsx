@@ -63,7 +63,7 @@ const InputText: React.FC<InputTextProps> = ({
           className: 'rounded-md bg-gray-100 dark:bg-bg-secondary-dark shadow-md border border-transparent',
           classes: {
             notchedOutline: error ? 'border-red-500 dark:border-red-600' : 'border-inherit',
-            focused: 'border-primary dark:border-primary-dark',
+            focused: '!border-primary dark:border-primary-dark',
             input: 'py-3.5 font-medium text-gray-800 dark:text-white',
           },
           startAdornment: (

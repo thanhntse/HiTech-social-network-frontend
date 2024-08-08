@@ -1,20 +1,17 @@
 import Button from "./button";
 
 export interface ButtonProps {
+  variant?: "contained" | "text" | "outlined";
   type?: "submit" | "reset" | "button";
-  label?: string;
-  size?: 'small' | 'medium' | 'large' | 'mini';
+  size?: 'small' | 'medium' | 'large';
   fullWidth?: boolean;
   fullRounded?: boolean;
   className?: string;
   icon?: React.ReactNode;
-  iconClass?: string;
   loading?: boolean;
-  loadingColor?: string;
   disabled?: boolean;
   onClick?: () => void;
-  loadingHeight?: string;
-  loadingWidth?: string;
+  children: React.ReactNode;
 }
 
 export default Button;
