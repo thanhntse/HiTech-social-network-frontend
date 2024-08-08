@@ -27,6 +27,9 @@ function App() {
     },
     palette: {
       mode: mode,
+      primary: {
+        main: '#2f65b9',
+      },
     },
   });
   return (

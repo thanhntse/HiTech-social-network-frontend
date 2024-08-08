@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import InputText from '../components/input-text';
 import { User } from 'lucide-react';
 import Password from '../components/password';
+import Button from '../components/button';
 
 type Props = {}
 
@@ -37,7 +38,6 @@ const Login = ({ }: Props) => {
         [name]: value,
       };
     });
-    validateForm();
   };
 
   const validateForm = () => {
@@ -69,7 +69,7 @@ const Login = ({ }: Props) => {
               alt="logo"
               className="w-10 h-10"
             />
-            <Typography className="text-3xl font-semibold text-gray-800 dark:text-white">
+            <Typography className="text-3xl font-semibold">
               HiTech
             </Typography>
           </Box>
@@ -104,12 +104,42 @@ const Login = ({ }: Props) => {
             error={!!loginFormError?.password}
             errorMsg={loginFormError?.password}
           />
+
+          <Box
+            className='w-full flex justify-end -my-3'
+          >
+            <Button
+              variant='text'
+              className='italic'
+            >
+              {t('forgotPassword')}
+            </Button>
+          </Box>
+
+          <Button
+            fullWidth
+            size='large'
+            // loading
+            // variant='outlined'
+          >
+            {t('signIn')}
+          </Button>
         </Box>
 
         <Box
-          className=""
+          className="flex justify-center items-center gap-1.5"
         >
-
+          <Typography
+            className='font-medium'
+          >
+            {t('dontHaveAnAccount')}
+          </Typography>
+          <Button
+            variant='text'
+            className='text-base'
+          >
+            {t('signUp')}
+          </Button>
         </Box>
 
       </Box>

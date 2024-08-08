@@ -13,5 +13,9 @@
   "emailAddress": "Địa chỉ Email",
   "enterYourEmailAddress": "Nhập địa chỉ email của bạn",
   "password": "Mật khẩu",
-  "enterYourPassword": "Nhập mật khẩu của bạn"
+  "enterYourPassword": "Nhập mật khẩu của bạn",
+  "forgotPassword": "Quên mật khẩu?",
+  "signIn": "Đăng nhập",
+  "dontHaveAnAccount": "Chưa có tài khoản?",
+  "signUp": "Đăng ký"
 }

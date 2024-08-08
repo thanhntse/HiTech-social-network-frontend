@@ -13,5 +13,9 @@
   "emailAddress": "Email Address",
   "enterYourEmailAddress": "Enter your email address",
   "password": "Password",
-  "enterYourPassword": "Enter your password"
+  "enterYourPassword": "Enter your password",
+  "forgotPassword": "Forgot Password?",
+  "signIn": "Sign In",
+  "dontHaveAnAccount": "Don't have an account?",
+  "signUp": "Sign Up"
 }
