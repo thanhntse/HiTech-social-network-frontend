@@ -1,8 +1,8 @@
 import {
   Box
 } from '@mui/material'
-import React from 'react'
 import StoryCard from './StoryCard'
+import userStories from '../../../constant/demo-story-list'
 
 type Props = {}
 
@@ -12,13 +12,15 @@ export default function StoryList({}: Props) {
       <Box
         className='w-full flex justify-center items-center gap-5'
       >
-        <StoryCard />
-        <StoryCard />
-        <StoryCard />
-        <StoryCard />
-        <StoryCard />
-        <StoryCard />
-        <StoryCard />
+        {userStories.map((user) => (
+          <StoryCard
+            key={user.id}
+            id={user.id}
+            avatar={user.avatar}
+            fullName={user.fullName}
+            stories={user.stories}
+          />
+        ))}
       </Box>
     </>
   )
