@@ -79,10 +79,9 @@ export default function Topbar({ open, setOpen, mode, toggleMode }: Props) {
             onClick={setOpen}
             edge="start"
             sx={{
-              marginRight: 5,
               ...(open && { display: 'none' }),
             }}
-            className='shadow-sm shadow-primary animate-bounce rounded-lg hover:bg-primary-light hover:text-primary dark:hover:bg-bg-primary-dark dark:hover:text-white w-8 h-8 -mb-2'
+            className='shadow-sm shadow-primary animate-bounce rounded-lg hover:bg-primary-light hover:text-primary dark:hover:bg-bg-primary-dark dark:hover:text-white w-8 h-8 -mb-2 mr-5 3xl:-mr-5'
           >
             {theme.direction === 'rtl' ? <MoveLeft /> : <MoveRight />}
           </IconButton>
@@ -117,7 +116,7 @@ export default function Topbar({ open, setOpen, mode, toggleMode }: Props) {
               ))}
             </List>
             <Box
-              className="px-10 w-full flex justify-end items-center gap-5"
+              className="w-full flex justify-end items-center gap-5"
             >
               <FormControl
                 sx={{ m: 1, width: '25ch' }}

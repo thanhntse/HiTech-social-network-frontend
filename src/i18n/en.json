@@ -34,5 +34,9 @@
   "enterYourNewPassword": "Enter your new password",
   "newPassword": "New Password",
   "haventReceivedEmailYet": "Haven't received email yet?",
-  "resend": "Resend"
+  "resend": "Resend",
+  "activeFriend": "Active Friend",
+  "thereAreNoRecentlyActiveFriend": "There are no recently active friends",
+  "latestActivities": "Latest Activities",
+  "thereAreNoLatestActivities": "There are no latest activities"
 }

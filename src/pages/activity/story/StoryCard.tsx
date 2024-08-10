@@ -17,7 +17,7 @@ export default function StoryCard(props: UserStory) {
           <img
             src={props.stories[0].image.url}
             alt={`User Story ${props.id}`}
-            className='object-cover object-center w-full h-full rounded-md'
+            className='object-cover object-center w-full h-full rounded-md cursor-pointer hover:brightness-75 dark:hover:brightness-50 transition-all ease-in-out duration-200'
           />
           <Box
             className={`absolute left-1/2 -translate-x-1/2 -bottom-5 w-11 h-11 bg-bg-primary-light dark:bg-bg-primary-dark rounded-full flex flex-col justify-center items-center`}
@@ -30,7 +30,7 @@ export default function StoryCard(props: UserStory) {
           </Box>
         </Box>
         <Typography
-          className='text-sm font-semibold text-center mt-6'
+          className='text-sm font-semibold text-center mt-6 hover:scale-105 hover:text-primary dark:hover:text-primary-dark cursor-pointer transition-all ease-in-out duration-200'
         >
           {props.fullName}
         </Typography>
