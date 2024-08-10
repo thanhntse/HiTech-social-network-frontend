@@ -3,8 +3,8 @@ import {
   Typography
 } from '@mui/material'
 import LatestActivityCard from './LatestActivityCard'
-import activeUsers from '../../../constant/demo-active-user'
 import { useTranslation } from 'react-i18next'
+import latestActivities from '../../../constant/demo-latest-activity'
 
 type Props = {}
 
@@ -26,16 +26,16 @@ export default function LatestActivityList({}: Props) {
           </Typography>
         </Box>
         {
-          activeUsers.length
+          latestActivities.length
             ?
             <Box
               className='w-full flex flex-col justify-center items-start gap-2'
             >
-              {activeUsers.map((user) => (
+              {latestActivities.map((activity) => (
                 <LatestActivityCard
-                  key={user.id}
-                  avatar={user.avatar}
-                  fullName={user.fullName}
+                  key={activity.id}
+                  avatar={activity.avatar}
+                  fullName={activity.fullName}
                 />
               ))}
             </Box>
