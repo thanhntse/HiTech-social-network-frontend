@@ -34,5 +34,9 @@
   "enterYourNewPassword": "Nhập mật khẩu mới",
   "newPassword": "Mật khẩu mới",
   "haventReceivedEmailYet": "Chưa nhận được email?",
-  "resend": "Gửi lại"
+  "resend": "Gửi lại",
+  "activeFriend": "Đang hoạt động",
+  "thereAreNoRecentlyActiveFriend": "Không có bạn bè nào hoạt động gần đây",
+  "latestActivities": "Hoạt động gần đây",
+  "thereAreNoLatestActivities": "Không có hoạt động nào gần đây"
 }

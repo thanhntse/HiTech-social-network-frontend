@@ -64,30 +64,30 @@ const userStories: UserStory[] = [
     avatar: avatar,
     stories: stories
   },
-  // {
-  //   id: 7,
-  //   fullName: 'Thanh Nguyen',
-  //   avatar: avatar,
-  //   stories: stories
-  // },
-  // {
-  //   id: 8,
-  //   fullName: 'Thanh Nguyen',
-  //   avatar: avatar,
-  //   stories: stories
-  // },
-  // {
-  //   id: 9,
-  //   fullName: 'Thanh Nguyen',
-  //   avatar: avatar,
-  //   stories: stories
-  // },
-  // {
-  //   id: 10,
-  //   fullName: 'Thanh Nguyen',
-  //   avatar: avatar,
-  //   stories: stories
-  // }
+  {
+    id: 7,
+    fullName: 'Thanh Nguyen',
+    avatar: avatar,
+    stories: stories
+  },
+  {
+    id: 8,
+    fullName: 'Thanh Nguyen',
+    avatar: avatar,
+    stories: stories
+  },
+  {
+    id: 9,
+    fullName: 'Thanh Nguyen',
+    avatar: avatar,
+    stories: stories
+  },
+  {
+    id: 10,
+    fullName: 'Thanh Nguyen',
+    avatar: avatar,
+    stories: stories
+  }
 ]
 
 export default userStories;
