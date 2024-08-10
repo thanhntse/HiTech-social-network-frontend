@@ -38,5 +38,6 @@
   "activeFriend": "Active Friend",
   "thereAreNoRecentlyActiveFriend": "There are no recently active friends",
   "latestActivities": "Latest Activities",
-  "thereAreNoLatestActivities": "There are no latest activities"
+  "thereAreNoLatestActivities": "There are no latest activities",
+  "hasMessagedYou": "has messaged you"
 }
