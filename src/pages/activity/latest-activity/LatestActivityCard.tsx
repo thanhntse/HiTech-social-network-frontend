@@ -38,11 +38,11 @@ export default function LatestActivityCard({ avatar, fullName }: Props) {
             >
               {fullName}
             </span>
-            <Typography
-              className='ml-2 inline text-txt-primary-light dark:text-txt-primary-dark text-sm'
+            <span
+              className='ml-2 inline font-normal text-txt-primary-light dark:text-txt-primary-dark text-sm'
             >
               {t('hasMessagedYou')}
-            </Typography>
+            </span>
           </Typography>
 
           <Typography
