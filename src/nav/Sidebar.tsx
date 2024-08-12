@@ -19,10 +19,14 @@ import {
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
+import LanguageSelector from '../components/LanguageSelector';
+import ModeSwitch from '../components/theme-mode-switch/ModeSwitch';
 
 type Props = {
   open: boolean;
-  setClose: () => void
+  setClose: () => void;
+  mode: 'light' | 'dark';
+  toggleMode: any
 }
 
 export const drawerWidth = 270;
@@ -83,7 +87,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function Sidebar({open, setClose}: Props) {
+export default function Sidebar({ open, setClose, mode, toggleMode }: Props) {
   const theme = useTheme();
   const { t } = useTranslation();
 
@@ -118,7 +122,7 @@ export default function Sidebar({open, setClose}: Props) {
             </IconButton>
           }
         </DrawerHeader>
-        <Divider className="opacity-50"/>
+        <Divider className="opacity-50" />
         <List>
           {sideBarItem.map((item) => (
             <ListItem
@@ -167,6 +171,19 @@ export default function Sidebar({open, setClose}: Props) {
             </ListItem>
           ))}
         </List>
+        <Box
+          className="flex-1 flex justify-center items-end"
+        >
+          <Box
+            className="w-full bg-primary-light dark:bg-bg-primary-dark flex justify-center items-center gap-10 h-16 p-4 m-4 rounded-lg"
+          >
+            <ModeSwitch
+              mode={mode}
+              toggleMode={toggleMode}
+            />
+            <LanguageSelector />
+          </Box>
+        </Box>
       </Drawer>
     </>
   )

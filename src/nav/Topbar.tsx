@@ -5,11 +5,9 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import {
   Bell,
-  Moon,
   MoveLeft,
   MoveRight,
   Search,
-  Sun
 } from 'lucide-react';
 import {
   Avatar,
@@ -22,7 +20,6 @@ import {
   ListItemText,
   OutlinedInput
 } from '@mui/material';
-import LanguageSelector from '../components/LanguageSelector';
 import { useTranslation } from 'react-i18next';
 
 interface AppBarProps extends MuiAppBarProps {
@@ -32,8 +29,6 @@ interface AppBarProps extends MuiAppBarProps {
 type Props = {
   open: boolean;
   setOpen: () => void;
-  mode: 'light' | 'dark';
-  toggleMode: any
 }
 
 const topBarItem: any[] = [
@@ -61,7 +56,7 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-export default function Topbar({ open, setOpen, mode, toggleMode }: Props) {
+export default function Topbar({ open, setOpen }: Props) {
   const theme = useTheme();
   const { t } = useTranslation();
 
@@ -154,26 +149,10 @@ export default function Topbar({ open, setOpen, mode, toggleMode }: Props) {
               >
                 <IconButton
                   color='inherit'
-                  className='hover:bg-primary-light dark:hover:bg-bg-primary-dark hover:text-primary dark:hover:text-primary-dark transition-all duration-300 ease-in-out'
-                  onClick={toggleMode}
+                  className='hover:bg-primary-light dark:hover:bg-bg-primary-dark hover:text-primary dark:hover:text-primary-dark transition-all duration-300 ease-in-out hover:scale-110'
                 >
-                  {
-                    mode === 'dark'
-                    ?
-                    <Sun strokeWidth={1.5}/>
-                    :
-                    <Moon strokeWidth={1.5}/>
-                  }
+                  <Bell />
                 </IconButton>
-                <IconButton
-                  color='inherit'
-                  className='hover:bg-primary-light dark:hover:bg-bg-primary-dark hover:text-primary dark:hover:text-primary-dark transition-all duration-300 ease-in-out'
-                >
-                  <Bell strokeWidth={1.5}/>
-                </IconButton>
-
-                <LanguageSelector />
-
               </Box>
 
               <Box>
