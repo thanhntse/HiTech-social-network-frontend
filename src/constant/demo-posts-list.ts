@@ -23,6 +23,9 @@ const posts: Posts[] = [
       image,
       image,
       image,
+      image,
+      image,
+      image,
       image
     ],
     content: '<div>Hello World!</div>',
@@ -34,6 +37,8 @@ const posts: Posts[] = [
     fullName: 'Thanh Nguyen',
     avatar: avatar,
     images: [
+      image,
+      image,
       image,
       image
     ],

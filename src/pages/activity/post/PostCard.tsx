@@ -82,6 +82,170 @@ export default function PostCard({
         </Box>
 
         <Box
+          className=''
+        >
+          <RenderIf
+            ifTrue={images.length === 1}
+          >
+            <img
+              src={images[0]?.url}
+              alt="Image"
+              className='object-cover object-center w-full rounded-md cursor-pointer hover:brightness-75 transition-all ease-in-out duration-300'
+            />
+          </RenderIf>
+          <RenderIf
+            ifTrue={images.length === 2}
+          >
+            <div
+              className='flex gap-1 w-full'
+            >
+              {images.map((image, index) => (
+                <div
+                  key={index}
+                  className='basis-1/2'
+                >
+                  <img
+                    src={image?.url}
+                    alt={`Image ${index}`}
+                    className='object-cover object-center w-full rounded-md cursor-pointer hover:brightness-75 transition-all ease-in-out duration-300'
+                  />
+                </div>
+              ))}
+            </div>
+          </RenderIf>
+          <RenderIf
+            ifTrue={images.length === 3}
+          >
+            <div
+              className='flex flex-col gap-1 w-full'
+            >
+              <img
+                src={images[0]?.url}
+                alt={`Image 1`}
+                className='object-cover object-center w-full rounded-md cursor-pointer hover:brightness-75 transition-all ease-in-out duration-300'
+              />
+              <div
+                className='flex gap-1 w-full'
+              >
+                {images
+                  .filter((_, index) => index !== 0)
+                  .map((image, index) => (
+                    <div
+                      className='basis-1/2'
+                      key={index}
+                    >
+                      <img
+                        src={image?.url}
+                        alt={`Image ${index}`}
+                        className='object-cover object-center w-full rounded-md cursor-pointer hover:brightness-75 transition-all ease-in-out duration-300'
+                      />
+                    </div>
+                  ))}
+              </div>
+            </div>
+          </RenderIf>
+          <RenderIf
+            ifTrue={images.length === 4}
+          >
+            <div
+              className='grid grid-cols-2 gap-1 w-full'
+            >
+              {images
+                .map((image, index) => (
+                  <img
+                    key={index}
+                    src={image?.url}
+                    alt={`Image ${index}`}
+                    className='object-cover object-center w-full rounded-md cursor-pointer hover:brightness-75 transition-all ease-in-out duration-300'
+                  />
+                ))}
+            </div>
+          </RenderIf>
+          <RenderIf
+            ifTrue={images.length === 5}
+          >
+            <div
+              className='flex gap-1 w-full'
+            >
+              <div
+                className='basis-1/2 flex flex-col gap-1'
+              >
+                {images
+                  .filter((_, index) => index === 0 || index === 1)
+                  .map((image, index) => (
+                    <img
+                      key={index}
+                      src={image?.url}
+                      alt={`Image ${index}`}
+                      className='object-cover object-center h-1/2 w-full rounded-md cursor-pointer hover:brightness-75 transition-all ease-in-out duration-300'
+                    />
+                  ))}
+              </div>
+              <div
+                className='basis-1/2 flex flex-col gap-1'
+              >
+                {images
+                  .filter((_, index) => index !== 0 && index !== 1)
+                  .map((image, index) => (
+                    <img
+                      key={index}
+                      src={image?.url}
+                      alt={`Image ${index}`}
+                      className='object-cover object-center h-1/2 w-full rounded-md cursor-pointer hover:brightness-75 transition-all ease-in-out duration-300'
+                    />
+                  ))}
+              </div>
+            </div>
+          </RenderIf>
+          <RenderIf
+            ifTrue={images.length > 5}
+          >
+            <div
+              className='flex gap-1 w-full'
+            >
+              <div
+                className='basis-1/2 flex flex-col gap-1'
+              >
+                {images
+                  .filter((_, index) => index === 0 || index === 1)
+                  .map((image, index) => (
+                    <img
+                      key={index}
+                      src={image?.url}
+                      alt={`Image ${index}`}
+                      className='object-cover object-center h-1/2 w-full rounded-md cursor-pointer hover:brightness-75 transition-all ease-in-out duration-300'
+                    />
+                  ))}
+              </div>
+              <div
+                className='basis-1/2 flex flex-col gap-1'
+              >
+                {images
+                  .filter((_, index) => index === 2 || index === 3)
+                  .map((image, index) => (
+                    <img
+                      key={index}
+                      src={image?.url}
+                      alt={`Image ${index}`}
+                      className='object-cover object-center h-1/3 w-full rounded-md cursor-pointer hover:brightness-75 transition-all ease-in-out duration-300'
+                    />
+                  ))}
+                <div className='flex items-center justify-center h-1/3 relative'>
+                  <img
+                    src={images[4]?.url}
+                    alt={`Image 4`}
+                    className='object-cover object-center w-full rounded-md cursor-pointer brightness-50 transition-all ease-in-out duration-300'
+                  />
+                  <div className='absolute text-white text-3xl font-medium'>
+                    +{images.length - 5}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </RenderIf>
+        </Box>
+
+        <Box
           className='w-full flex justify-between items-center'
         >
           <RenderIf
