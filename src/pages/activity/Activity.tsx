@@ -1,12 +1,9 @@
 import {
   Box
 } from '@mui/material'
-import React from 'react'
 import StoryList from './story/StoryList'
 import PostList from './post/PostList'
-import ActiveUserList from './active-user/ActiveUserList'
-import LatestActivityList from './latest-activity/LatestActivityList'
-import ContactUs from './contact-us/ContactUs'
+import Rightbar from '../../nav/Rightbar'
 
 type Props = {}
 
@@ -28,9 +25,7 @@ export default function Activity({}: Props) {
           <Box
             className='w-1/3 flex flex-col justify-center items-center gap-8'
           >
-            <ActiveUserList />
-            <LatestActivityList />
-            <ContactUs />
+            <Rightbar />
           </Box>
         </Box>
       </Box>
