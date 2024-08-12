@@ -34,7 +34,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = () => {
     >
       <IconButton
         color='inherit'
-        className='hover:bg-primary-light dark:hover:bg-bg-primary-dark hover:text-primary dark:hover:text-primary-dark transition-all duration-300 ease-in-out'
+        className='hover:bg-primary-light dark:hover:bg-bg-secondary-dark hover:text-primary dark:hover:text-primary-dark transition-all duration-300 ease-in-out hover:scale-110'
         onClick={toggleLanguage}
       >
         {

@@ -40,12 +40,12 @@ export default function MainLayout({ mode, toggleMode }: Props) {
       <Topbar
         open={open}
         setOpen={handleDrawerOpen}
-        mode={mode}
-        toggleMode={toggleMode}
       />
       <Sidebar
         open={open}
         setClose={handleDrawerClose}
+        mode={mode}
+        toggleMode={toggleMode}
       />
       <Box
         className='bg-bg-primary-light dark:bg-bg-primary-dark text-gray-800 dark:text-white'

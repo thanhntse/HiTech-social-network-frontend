@@ -1,16 +1,12 @@
 import {
   Box,
   CssBaseline,
-  IconButton
 } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import AuthCarousel from "../components/carousel/AuthCarousel";
 import images from "../constant/auth-img";
 import LanguageSelector from "../components/LanguageSelector";
-import {
-  Moon,
-  Sun
-} from "lucide-react";
+import ModeSwitch from "../components/theme-mode-switch/ModeSwitch";
 
 type Props = {
   mode: 'light' | 'dark';
@@ -48,22 +44,11 @@ export default function AuthLayout({ mode, toggleMode }: Props) {
         <Box
           className='absolute top-2 right-2 flex gap-2'
         >
-          <IconButton
-            color='inherit'
-            className='hover:bg-primary-light dark:hover:bg-bg-primary-dark hover:text-primary dark:hover:text-primary-dark transition-all duration-300 ease-in-out'
-            onClick={toggleMode}
-          >
-            {
-              mode === 'dark'
-              ?
-              <Sun strokeWidth={1.5}/>
-              :
-              <Moon strokeWidth={1.5}/>
-            }
-          </IconButton>
-
           <LanguageSelector />
-
+          <ModeSwitch
+            mode={mode}
+            toggleMode={toggleMode}
+          />
         </Box>
       </Box>
 
