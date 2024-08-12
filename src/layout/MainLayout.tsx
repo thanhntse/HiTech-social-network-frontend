@@ -5,6 +5,7 @@ import Sidebar from '../nav/Sidebar';
 import Topbar from '../nav/Topbar';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import Footer from '../nav/Footer';
 
 type Props = {
   mode: 'light' | 'dark';
@@ -48,15 +49,20 @@ export default function MainLayout({ mode, toggleMode }: Props) {
         toggleMode={toggleMode}
       />
       <Box
-        className='bg-bg-primary-light dark:bg-bg-primary-dark text-gray-800 dark:text-white'
+        className='bg-bg-primary-light dark:bg-bg-primary-dark text-gray-800 dark:text-white flex flex-col'
         component="main"
         sx={{ flexGrow: 1, p: 3 }}
       >
         <HeaderSpacing />
         <Box
-          className='max-w-screen-1440 mx-auto'
+          className='max-w-screen-1440 mx-auto w-full'
         >
           <Outlet />
+        </Box>
+        <Box
+          className='mt-6 flex-1 max-w-screen-1440 mx-auto flex items-end w-full'
+        >
+          <Footer />
         </Box>
       </Box>
     </Box>
