@@ -39,16 +39,16 @@ const activeUsers : any[] = [
     avatar: "/images/demo-avt.png",
     fullName: "Thanh Nguyen"
   },
-  {
-    id: 9,
-    avatar: "/images/demo-avt.png",
-    fullName: "Thanh Nguyen"
-  },
-  {
-    id: 10,
-    avatar: "/images/demo-avt.png",
-    fullName: "Thanh Nguyen"
-  },
+  // {
+  //   id: 9,
+  //   avatar: "/images/demo-avt.png",
+  //   fullName: "Thanh Nguyen"
+  // },
+  // {
+  //   id: 10,
+  //   avatar: "/images/demo-avt.png",
+  //   fullName: "Thanh Nguyen"
+  // },
 ];
 
 export default activeUsers;

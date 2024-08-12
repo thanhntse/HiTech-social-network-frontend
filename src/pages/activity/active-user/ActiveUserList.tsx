@@ -5,11 +5,26 @@ import {
 import ActiveUserCard from './ActiveUserCard'
 import { useTranslation } from 'react-i18next'
 import activeUsers from '../../../constant/demo-active-user'
+import { useState } from 'react'
+import Pagination from '../../../components/pagination'
+import RenderIf from '../../../components/RenderIf'
 
 type Props = {}
 
 export default function ActiveUserList({ }: Props) {
   const { t } = useTranslation();
+  const itemsPerPage = 5;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(activeUsers.length / itemsPerPage);
+
+  const handlePageChange = (event: any, value: any) => {
+    setCurrentPage(value);
+  };
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentItems = activeUsers.slice(startIndex, endIndex);
 
   return (
     <>
@@ -25,13 +40,15 @@ export default function ActiveUserList({ }: Props) {
             {t('activeFriend')}
           </Typography>
         </Box>
-        {
-          activeUsers.length
-            ?
+
+        <RenderIf
+          ifTrue={currentItems.length > 0}
+        >
+          <>
             <Box
               className='w-full flex flex-col justify-center items-start gap-2'
             >
-              {activeUsers.map((user) => (
+              {currentItems.map((user) => (
                 <ActiveUserCard
                   key={user.id}
                   avatar={user.avatar}
@@ -39,14 +56,25 @@ export default function ActiveUserList({ }: Props) {
                 />
               ))}
             </Box>
-            :
-            <Typography
-              className='w-full text-txt-primary-light dark:text-txt-primary-dark'
-            >
-              <hr className='mt-2 mb-5 opacity-10' />
-              {t('thereAreNoRecentlyActiveFriend')}
-            </Typography>
-        }
+            <Pagination
+              count={totalPages}
+              page={currentPage}
+              onChange={handlePageChange}
+            />
+          </>
+        </RenderIf>
+
+        <RenderIf
+          ifTrue={currentItems.length === 0}
+        >
+          <hr className='mt-2 mb-5 opacity-10 w-full' />
+          <Typography
+            className='w-full text-txt-primary-light dark:text-txt-primary-dark'
+          >
+            {t('thereAreNoRecentlyActiveFriend')}
+          </Typography>
+        </RenderIf>
+
       </Box>
     </>
   )

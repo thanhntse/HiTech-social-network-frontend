@@ -1,10 +1,9 @@
 import Pagination from "./pagination";
 
 export interface PaginationProps {
-  totalItems: number;
-  itemsPerPage: number;
-  currentPage: number;
-  onPageChange: (page: number) => void;
+  count: number;
+  page: number;
+  onChange: (event: any, value: any) => void;
 }
 
 export default Pagination;

@@ -5,11 +5,26 @@ import {
 import LatestActivityCard from './LatestActivityCard'
 import { useTranslation } from 'react-i18next'
 import latestActivities from '../../../constant/demo-latest-activity'
+import { useState } from 'react'
+import RenderIf from '../../../components/RenderIf'
+import Pagination from '../../../components/pagination'
 
 type Props = {}
 
-export default function LatestActivityList({}: Props) {
+export default function LatestActivityList({ }: Props) {
   const { t } = useTranslation();
+  const itemsPerPage = 5;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(latestActivities.length / itemsPerPage);
+
+  const handlePageChange = (event: any, value: any) => {
+    setCurrentPage(value);
+  };
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentItems = latestActivities.slice(startIndex, endIndex);
 
   return (
     <>
@@ -25,13 +40,15 @@ export default function LatestActivityList({}: Props) {
             {t('latestActivities')}
           </Typography>
         </Box>
-        {
-          latestActivities.length
-            ?
+
+        <RenderIf
+          ifTrue={currentItems.length > 0}
+        >
+          <>
             <Box
               className='w-full flex flex-col justify-center items-start gap-2'
             >
-              {latestActivities.map((activity) => (
+              {currentItems.map((activity) => (
                 <LatestActivityCard
                   key={activity.id}
                   avatar={activity.avatar}
@@ -39,14 +56,25 @@ export default function LatestActivityList({}: Props) {
                 />
               ))}
             </Box>
-            :
-            <Typography
-              className='w-full text-txt-primary-light dark:text-txt-primary-dark'
-            >
-              <hr className='mt-2 mb-5 opacity-10' />
-              {t('thereAreNoLatestActivities')}
-            </Typography>
-        }
+            <Pagination
+              count={totalPages}
+              page={currentPage}
+              onChange={handlePageChange}
+            />
+          </>
+        </RenderIf>
+
+        <RenderIf
+          ifTrue={currentItems.length === 0}
+        >
+          <hr className='mt-2 mb-5 opacity-10 w-full' />
+          <Typography
+            className='w-full text-txt-primary-light dark:text-txt-primary-dark'
+          >
+            {t('thereAreNoLatestActivities')}
+          </Typography>
+        </RenderIf>
+
       </Box>
     </>
   )
