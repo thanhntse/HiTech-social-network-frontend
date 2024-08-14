@@ -7,7 +7,7 @@ export default function Heart({ }: Props) {
   return (
     <>
       <div
-        className='p-2 hover:bg-rose-100 dark:hover:bg-rose-950 rounded-full transition-all duration-300 ease-in-out'
+        className='p-2 hover:bg-rose-100 dark:hover:bg-rose-950 rounded-full transition-all duration-300 hover:scale-110 ease-in-out'
       >
         <div className="heart-container w-6 h-6 flex justify-center items-center" title="Like">
           <input type="checkbox" className="checkbox" />

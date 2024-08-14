@@ -56,11 +56,15 @@ export default function LatestActivityList({ }: Props) {
                 />
               ))}
             </Box>
-            <Pagination
-              count={totalPages}
-              page={currentPage}
-              onChange={handlePageChange}
-            />
+            <RenderIf
+              ifTrue={latestActivities.length > itemsPerPage}
+            >
+              <Pagination
+                count={totalPages}
+                page={currentPage}
+                onChange={handlePageChange}
+              />
+            </RenderIf>
           </>
         </RenderIf>
 
