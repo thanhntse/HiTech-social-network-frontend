@@ -16,6 +16,7 @@ import friendList from '../../../constant/demo-friend-list';
 import { useState } from 'react';
 import Pagination from '../../../components/pagination';
 import Dropdown from '../../../components/dropdown/dropdown';
+import filterFriendsOptions from '../../../constant/filter-friends';
 
 type Props = {}
 
@@ -34,12 +35,6 @@ export default function FriendList({ }: Props) {
   const endIndex = startIndex + itemsPerPage;
   const currentItems = friendList.slice(startIndex, endIndex);
 
-  const options = [
-    { value: 'option1', label: 'Option 1' },
-    { value: 'option2', label: 'Option 2' },
-    { value: 'option3', label: 'Option 3' },
-  ];
-
   return (
     <>
       <Box
@@ -57,13 +52,13 @@ export default function FriendList({ }: Props) {
                 variant="outlined"
               >
                 <OutlinedInput
-                  id="outlined-adornment-search"
+                  id="outlined-adornment-search2"
                   type='text'
                   placeholder={t('searchFriend')}
-                  className='bg-bg-primary-light dark:bg-bg-primary-dark text-sm font-medium text-txt-primary-light dark:text-txt-primary-dark border border-gray-200 dark:border-bg-secondary-dark'
+                  className='bg-bg-primary-light dark:bg-bg-primary-dark font-medium text-txt-primary-light dark:text-txt-primary-dark border border-gray-200 dark:border-bg-secondary-dark'
                   startAdornment={
                     <InputAdornment position="start">
-                      <Search className='text-txt-primary-light dark:text-txt-primary-dark' size={18} />
+                      <Search className='text-txt-primary-light dark:text-txt-primary-dark' size={24} />
                     </InputAdornment>
                   }
                   sx={{
@@ -103,7 +98,7 @@ export default function FriendList({ }: Props) {
                   >
                     {t('showBy')}:
                   </Typography>
-                  <Dropdown options={options} multiple />
+                  <Dropdown options={filterFriendsOptions} />
                 </Box>
 
               </Box>

@@ -1,5 +1,10 @@
 import React from 'react';
 
+export interface Option {
+  value: string,
+  label: string
+}
+
 export interface Image {
   id: number;
   imageNo: number;
