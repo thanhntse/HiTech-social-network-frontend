@@ -55,5 +55,7 @@
   "selectOptions": "Select options",
   "alphabetical": "Alphabetical",
   "newestAdd": "Newest add",
-  "lastActive": "Last active"
+  "lastActive": "Last active",
+  "noGroupFound": "No group found!",
+  "searchGroup": "Search Groups..."
 }

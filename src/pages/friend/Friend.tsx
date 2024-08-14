@@ -7,7 +7,7 @@ import FriendList from './my-friend/FriendList'
 
 type Props = {}
 
-export default function Friend({}: Props) {
+export default function Friend({ }: Props) {
   return (
     <>
       <Box
@@ -22,11 +22,7 @@ export default function Friend({}: Props) {
           >
             <FriendList />
           </Box>
-          <Box
-            className='w-1/3 flex flex-col justify-center items-center gap-8'
-          >
-            <Rightbar />
-          </Box>
+          <Rightbar />
         </Box>
       </Box>
     </>

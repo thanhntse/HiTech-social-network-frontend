@@ -15,7 +15,7 @@ export default function ContactUs({ }: Props) {
   return (
     <>
       <Box
-        className='w-full flex flex-col items-center bg-white dark:bg-bg-secondary-dark rounded-lg shadow-gray-200 dark:shadow-bg-secondary-dark shadow-md p-8 h-[480px] bg-[url(/images/contact-us-img.jpg)] bg-cover bg-center'
+        className='w-full flex flex-col items-center bg-white dark:bg-bg-secondary-dark rounded-lg shadow-gray-200 dark:shadow-bg-secondary-dark shadow-md p-8 min-h-[480px] bg-[url(/images/contact-us-img.jpg)] bg-cover bg-center'
       >
         <Box className={`mt-5 flex gap-3 items-center justify-center`}
         >

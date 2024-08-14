@@ -11,16 +11,16 @@ import {
   SearchX
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next';
-import FriendCard from './FriendCard';
 import friendList from '../../../constant/demo-friend-list';
 import { useState } from 'react';
 import Pagination from '../../../components/pagination';
 import Dropdown from '../../../components/dropdown/dropdown';
 import filterFriendsOptions from '../../../constant/filter-friends';
+import GroupCard from './GroupCard';
 
 type Props = {}
 
-export default function FriendList({ }: Props) {
+export default function MyGroups({ }: Props) {
   const { t } = useTranslation();
   const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
@@ -51,7 +51,7 @@ export default function FriendList({ }: Props) {
             <OutlinedInput
               id="outlined-adornment-search2"
               type='text'
-              placeholder={t('searchFriend')}
+              placeholder={t('searchGroup')}
               className='bg-bg-primary-light dark:bg-bg-primary-dark font-medium text-txt-primary-light dark:text-txt-primary-dark border border-gray-200 dark:border-bg-secondary-dark'
               startAdornment={
                 <InputAdornment position="start">
@@ -108,7 +108,7 @@ export default function FriendList({ }: Props) {
               className='w-full flex flex-col justify-center items-start gap-8'
             >
               {currentItems.map((user, index) => (
-                <FriendCard
+                <GroupCard
                   key={index}
                   avatar={user.avatar}
                   fullName={user.fullName}
@@ -141,7 +141,7 @@ export default function FriendList({ }: Props) {
             <Typography
               className='text-3xl font-medium italic'
             >
-              {t('noFriendFound')}
+              {t('noGroupFound')}
             </Typography>
           </Box>
         </RenderIf>

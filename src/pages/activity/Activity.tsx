@@ -7,7 +7,7 @@ import Rightbar from '../../nav/Rightbar'
 
 type Props = {}
 
-export default function Activity({}: Props) {
+export default function Activity({ }: Props) {
   return (
     <>
       <Box
@@ -22,11 +22,7 @@ export default function Activity({}: Props) {
           >
             <PostList />
           </Box>
-          <Box
-            className='w-1/3 flex flex-col justify-center items-center gap-8'
-          >
-            <Rightbar />
-          </Box>
+          <Rightbar />
         </Box>
       </Box>
     </>
