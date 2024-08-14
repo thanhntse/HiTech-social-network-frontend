@@ -51,5 +51,10 @@
   "thisFeatureIsInDevelopment": "Tính năng này đang trong quá trình phát triển!",
   "searchFriend": "Tìm kiếm bạn bè...",
   "myFriends": "Bạn bè của tôi",
-  "showBy": "Hiển thị với"
+  "showBy": "Hiển thị với",
+  "selectOptions": "Lựa chọn tùy chọn",
+  "alphabetical": "Bảng chữ cái",
+  "newestAdd": "Mới thêm gần đây",
+  "lastActive": "Hoạt động gần đây"
+
 }

@@ -51,5 +51,9 @@
   "thisFeatureIsInDevelopment": "This feature is in process of development!",
   "searchFriend": "Search Friends...",
   "myFriends": "My Friends",
-  "showBy": "Show by"
+  "showBy": "Show by",
+  "selectOptions": "Select options",
+  "alphabetical": "Alphabetical",
+  "newestAdd": "Newest add",
+  "lastActive": "Last active"
 }
