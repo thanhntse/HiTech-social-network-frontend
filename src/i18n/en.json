@@ -44,6 +44,12 @@
   "feelFreeToReachUsAnytime": "Feel free to reach us anytime",
   "weAreAvaliable24Hours": "We are avaliable 24 hours",
   "noPostFound": "No post found!",
+  "noFriendFound": "No friend found!",
   "comment": "comment",
-  "comments": "comments"
+  "comments": "comments",
+  "top3BestFriends": "Top 3 best friends",
+  "thisFeatureIsInDevelopment": "This feature is in process of development!",
+  "searchFriend": "Search Friends...",
+  "myFriends": "My Friends",
+  "showBy": "Show by"
 }

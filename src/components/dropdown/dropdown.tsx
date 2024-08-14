@@ -1,122 +1,66 @@
-import { useState, useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
-import { Item, DropdownProps, DropdownRef } from './index';
-import DropdownItem from './dropdownItem';
+import { ChevronDown } from 'lucide-react';
+import React, { useState } from 'react';
 
-const Dropdown = forwardRef<DropdownRef, DropdownProps>((props, ref) => {
-  // State to manage whether the dropdown is open or closed
+interface Option {
+  value: string;
+  label: string;
+}
+
+interface DropdownProps {
+  options: Option[];
+  multiple?: boolean;
+}
+
+const Dropdown: React.FC<DropdownProps> = ({ options, multiple = false }) => {
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
-  // State to manage the selected item (changed to store full item object)
-  const [selectedItem, setSelectedItem] = useState<string | null>(null);
+  const toggleDropdown = () => setIsOpen(!isOpen);
 
-  // Ref for the dropdown element to detect clicks outside
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  // Function to toggle the dropdown open/close state
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
-  // Function to handle clicks outside the dropdown to close it
-  const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+  const handleOptionClick = (value: string) => {
+    if (multiple) {
+      setSelectedOptions(prev =>
+        prev.includes(value) ? prev.filter(option => option !== value) : [...prev, value]
+      );
+    } else {
+      setSelectedOptions([value]);
       setIsOpen(false);
     }
   };
 
-  // Function to handle the selection of an item from the dropdown
-  const handleSelectItem = (item: Item) => {
-    setSelectedItem(item.label); // Update selected item state
-    props.onSelect(item);        // Notify parent component about the selected item
-    setIsOpen(false);            // Close the dropdown after selection
-  };
-
-  useEffect(() => {
-    if(!props.placeholder) setSelectedItem(props.items[0].label || null)
-  }, [props.items]);
-
-  // Effect to add and clean up event listener for clicks outside the dropdown
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
-  // Effect to update the selected item if the initial value changes
-  useEffect(() => {
-    setSelectedItem(props.initialValue || null);
-  }, [props.initialValue]);
-
-  // UseImperativeHandle to expose specific methods to parent component
-  useImperativeHandle(ref, () => ({
-    clearFormDropdown: () => {
-      setSelectedItem(null);    // Clear selected item state
-      props.onSelect(null);     // Notify parent component about the clear action
-    }
-  }));
-
   return (
-    <div
-      className={`w-full text-gray-800 relative ${props.className}`}
-      ref={dropdownRef} // Attach the ref to the dropdown div
-    >
-      {/* Render the label if provided */}
-      {props.label && (
-        <div className='font-semibold mb-2'>
-          {props.label}
-        </div>
-      )}
-
-      {/* Button to toggle the dropdown */}
+    <div className="relative">
       <button
-        className={`border border-gray-300 focus:outline focus:outline-1 focus:outline-gray-400 py-3 px-6 rounded-lg w-full text-gray-500 flex justify-between items-center ${props.buttonClassName}`}
         onClick={toggleDropdown}
-        aria-haspopup="listbox"
-        aria-expanded={isOpen}
+        className="w-full py-2.5 px-4 bg-inherit text-inherit text-base font-medium font-primary rounded-md border border-solid border-gray-200 dark:border-gray-800 flex items-center gap-2 cursor-pointer hover:border-primary dark:hover:border-primary-dark transition-all duration-300 ease-in-out"
       >
-        {/* Display selected item label or placeholder */}
-        <div className={`text-sm font-normal truncate ${(selectedItem || props.initialValue) ? 'text-gray-800 font-semibold' : 'text-gray-400'}`}>
-          {selectedItem || props.initialValue || props.placeholder}
-        </div>
-        {/* SVG for dropdown arrow, rotates when open */}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#6b7280"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={isOpen ? 'rotate-180 lucide lucide-chevron-down' : 'lucide lucide-chevron-down'}
-        >
-          <path d="m6 9 6 6 6-6" />
-        </svg>
+        {selectedOptions.length > 0
+          ? options
+              .filter(option => selectedOptions.includes(option.value))
+              .map(option => option.label)
+              .join(', ')
+          : 'Select options'}
+        <ChevronDown
+          strokeWidth={1.5}
+        />
       </button>
-
-      {/* Dropdown menu */}
       {isOpen && (
-        <div
-          className={`absolute ${props.dir === 'up' ? '-top-[216px]' : ''} w-full max-h-52 overflow-y-auto flex flex-col border border-gray-200 bg-white z-10 shadow-md rounded-lg mt-0.5 gap-0.5`}
-          role="listbox"
-        >
-          {/* Render dropdown items */}
-          {props.items.map((item, index) => (
-            <DropdownItem
-              key={index}
-              item={item}
-              isSelected={selectedItem === item.label}
-              onSelect={handleSelectItem}
-              className={props.itemClassName}
-            />
+        <div className="absolute left-0 top-full mt-2 w-full bg-white dark:bg-bg-secondary-dark rounded-md shadow-lg z-10">
+          {options.map(option => (
+            <div
+              key={option.value}
+              onClick={() => handleOptionClick(option.value)}
+              className={`p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-bg-primary-dark rounded-md transition ${
+                selectedOptions.includes(option.value) ? 'bg-gray-200 dark:bg-gray-800 font-semibold' : ''
+              }`}
+            >
+              {option.label}
+            </div>
           ))}
         </div>
       )}
     </div>
   );
-});
+};
 
-// Export the Dropdown component
 export default Dropdown;

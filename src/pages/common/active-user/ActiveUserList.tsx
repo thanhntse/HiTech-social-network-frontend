@@ -56,11 +56,15 @@ export default function ActiveUserList({ }: Props) {
                 />
               ))}
             </Box>
-            <Pagination
-              count={totalPages}
-              page={currentPage}
-              onChange={handlePageChange}
-            />
+            <RenderIf
+              ifTrue={activeUsers.length > itemsPerPage}
+            >
+              <Pagination
+                count={totalPages}
+                page={currentPage}
+                onChange={handlePageChange}
+              />
+            </RenderIf>
           </>
         </RenderIf>
 

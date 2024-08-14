@@ -1,16 +1,20 @@
-import {
-  Box
-} from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 type Props = {}
 
 export default function TopFriend({}: Props) {
+  const { t } = useTranslation();
   return (
     <>
       <div
-        className='bg-[url(/images/demo-banner.jpg)] bg-center bg-cover w-full h-[300px]'
+        className='bg-[url(/images/demo-banner.jpg)] bg-center bg-cover w-full h-[300px] rounded-md flex flex-col justify-center gap-5 p-8 text-white'
       >
-        Top 3 best friends
+        <div className="text-4xl font-semibold">
+          {t('top3BestFriends')}
+        </div>
+        <div className="">
+          {t('thisFeatureIsInDevelopment')}
+        </div>
       </div>
     </>
   )
