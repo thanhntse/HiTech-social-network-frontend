@@ -35,7 +35,7 @@ export default function MainLayout({ mode, toggleMode }: Props) {
   return (
     <Box
       sx={{ display: 'flex' }}
-      className='min-h-screen font-primary text-base overflow-auto'
+      className='min-h-screen font-primary text-base'
     >
       <CssBaseline />
       <Topbar
