@@ -9,7 +9,6 @@ import {
   Ellipsis,
   MapPin,
   MessageCircleMore,
-  X
 } from 'lucide-react'
 
 type Props = {

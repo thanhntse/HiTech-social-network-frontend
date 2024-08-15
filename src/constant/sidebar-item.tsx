@@ -4,13 +4,7 @@ import {
   SquareActivity,
   Users
 } from "lucide-react";
-
-type SidebarItemProps = {
-  id: number,
-  label: string,
-  path: string,
-  icon: React.ReactNode
-}
+import { SidebarItemProps } from "../types";
 
 const sideBarItem: SidebarItemProps[] = [
   { id: 1, label: "activity", path: "/activity", icon: <SquareActivity /> },

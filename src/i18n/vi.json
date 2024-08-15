@@ -61,5 +61,11 @@
   "members": "Thành viên",
   "searchMember": "Tìm kiếm thành viên...",
   "allMembers": "Toàn bộ thành viên",
-  "noMemberFound": "Không có thành viên nào!"
+  "noMemberFound": "Không có thành viên nào!",
+  "allGroups": "Toàn bộ nhóm",
+  "myGroups": "Nhóm của tôi",
+  "top3MostActiveGroups": "Top 3 nhóm hoạt động tích cực nhất",
+  "lastCreate": "Mới tạo",
+  "lastJoin": "Mới tham gia",
+  "lastPost": "Mới đăng bài"
 }

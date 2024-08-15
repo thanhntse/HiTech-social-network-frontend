@@ -1,8 +1,9 @@
-import { Box } from '@mui/material'
-import React from 'react'
+import {
+  Box
+} from '@mui/material'
 import TopGroup from './top-group/TopGroup'
-import MyGroups from './group-list/MyGroups'
 import Rightbar from '../../nav/Rightbar'
+import GroupList from './group-list/GroupList'
 
 type Props = {}
 
@@ -19,7 +20,7 @@ export default function Group({}: Props) {
           <Box
             className='w-2/3'
           >
-            <MyGroups />
+            <GroupList />
           </Box>
           <Rightbar />
         </Box>
