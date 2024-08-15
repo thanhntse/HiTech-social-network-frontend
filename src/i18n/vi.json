@@ -57,5 +57,9 @@
   "newestAdd": "Mới thêm gần đây",
   "lastActive": "Hoạt động gần đây",
   "noGroupFound": "Không có nhóm nào!",
-  "searchGroup": "Tìm kiếm nhóm..."
+  "searchGroup": "Tìm kiếm nhóm...",
+  "members": "Thành viên",
+  "searchMember": "Tìm kiếm thành viên...",
+  "allMembers": "Toàn bộ thành viên",
+  "noMemberFound": "Không có thành viên nào!"
 }

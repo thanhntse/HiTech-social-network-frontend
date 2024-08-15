@@ -57,5 +57,9 @@
   "newestAdd": "Newest add",
   "lastActive": "Last active",
   "noGroupFound": "No group found!",
-  "searchGroup": "Search Groups..."
+  "searchGroup": "Search Groups...",
+  "members": "Members",
+  "searchMember": "Search Members...",
+  "allMembers": "All Members",
+  "noMemberFound": "No member found!"
 }
