@@ -17,6 +17,7 @@ export default function AllGroups({ }: Props) {
   const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
+  const totalItems = friendList.length;
   const totalPages = Math.ceil(friendList.length / itemsPerPage);
 
   const handlePageChange = (event: any, value: any) => {
@@ -35,6 +36,11 @@ export default function AllGroups({ }: Props) {
         <Box
           className='w-full flex flex-col'
         >
+          <Box
+            className='w-full text-xs text-txt-primary-light dark:text-txt-primary-dark font-medium text-right mb-2'
+          >
+            {startIndex + 1} - {endIndex > totalItems ? totalItems : endIndex} {t('of')} {totalItems}
+          </Box>
           <Box
             className='w-full flex flex-col justify-center items-start gap-8'
           >
