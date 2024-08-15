@@ -9,7 +9,6 @@ import {
   Ellipsis,
   MapPin,
   MessageCircleMore,
-  X
 } from 'lucide-react'
 
 type Props = {
@@ -18,7 +17,7 @@ type Props = {
   address: string
 }
 
-export default function FriendCard({
+export default function MemberCard({
   avatar,
   fullName,
   address

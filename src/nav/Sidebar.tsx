@@ -10,17 +10,14 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import {
-  HeartHandshake,
-  MessageCircleMore,
   MoveLeft,
   MoveRight,
-  SquareActivity,
-  Users
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import LanguageSelector from '../components/LanguageSelector';
 import ModeSwitch from '../components/theme-mode-switch/ModeSwitch';
+import sideBarItem from '../constant/sidebar-item';
 
 type Props = {
   open: boolean;
@@ -31,13 +28,6 @@ type Props = {
 
 export const drawerWidth = 270;
 export const drawerWidthClose = 88;
-
-const sideBarItem: any[] = [
-  { id: 1, label: "activity", path: "/activity", icon: <SquareActivity /> },
-  { id: 2, label: "friends", path: "/friend", icon: <Users /> },
-  { id: 3, label: "messages", path: "/message", icon: <MessageCircleMore /> },
-  { id: 4, label: "groups", path: "/group", icon: <HeartHandshake /> }
-];
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,

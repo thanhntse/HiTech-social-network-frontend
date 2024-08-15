@@ -3,11 +3,11 @@ import {
 } from '@mui/material'
 import Rightbar from '../../nav/Rightbar'
 import TopFriend from './top-friend/TopFriend'
-import FriendList from './my-friend/FriendList'
+import MemberList from './member-list/MemberList'
 
 type Props = {}
 
-export default function Friend({ }: Props) {
+export default function Member({ }: Props) {
   return (
     <>
       <Box
@@ -20,7 +20,7 @@ export default function Friend({ }: Props) {
           <Box
             className='w-2/3'
           >
-            <FriendList />
+            <MemberList />
           </Box>
           <Rightbar />
         </Box>
