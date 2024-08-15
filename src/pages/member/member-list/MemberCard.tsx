@@ -25,7 +25,7 @@ export default function MemberCard({
   return (
     <>
       <Box
-        className='p-6 bg-gray-100 dark:bg-bg-primary-dark w-full rounded-md'
+        className='p-6 bg-primary-light dark:bg-bg-primary-dark w-full rounded-md'
       >
         <Box
           className={`w-full flex justify-between items-start`}

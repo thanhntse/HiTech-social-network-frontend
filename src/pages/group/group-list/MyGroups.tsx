@@ -4,10 +4,10 @@ import {
 } from '@mui/material'
 import RenderIf from '../../../components/RenderIf'
 import { useTranslation } from 'react-i18next';
-import friendList from '../../../constant/demo-friend-list';
 import { useState } from 'react';
 import Pagination from '../../../components/pagination';
 import { SearchX } from 'lucide-react';
+import groupList from '../../../constant/demo-group-list';
 import GroupCard from './GroupCard';
 
 type Props = {}
@@ -17,8 +17,8 @@ export default function MyGroups({ }: Props) {
   const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalItems = friendList.length;
-  const totalPages = Math.ceil(friendList.length / itemsPerPage);
+  const totalItems = groupList.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const handlePageChange = (event: any, value: any) => {
     setCurrentPage(value);
@@ -26,7 +26,7 @@ export default function MyGroups({ }: Props) {
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const currentItems = friendList.slice(startIndex, endIndex);
+  const currentItems = groupList.slice(startIndex, endIndex);
 
   return (
     <>
@@ -42,19 +42,22 @@ export default function MyGroups({ }: Props) {
             {startIndex + 1} - {endIndex > totalItems ? totalItems : endIndex} {t('of')} {totalItems}
           </Box>
           <Box
-            className='w-full flex flex-col justify-center items-start gap-8'
+            className='w-full grid grid-cols-2 gap-8'
           >
-            {currentItems.map((user, index) => (
+            {currentItems.map((group, index) => (
               <GroupCard
                 key={index}
-                avatar={user.avatar}
-                fullName={user.fullName}
-                address={user.address}
+                avatar={group.avatar}
+                background={group.background}
+                memberAvatarList={group.memberAvatarList}
+                memberCount={group.memberCount}
+                postCount={group.postCount}
+                name={group.name}
               />
             ))}
           </Box>
           <RenderIf
-            ifTrue={friendList.length > itemsPerPage}
+            ifTrue={totalItems > itemsPerPage}
           >
             <Pagination
               count={totalPages}

@@ -68,5 +68,9 @@
   "lastCreate": "Mới tạo",
   "lastJoin": "Mới tham gia",
   "lastPost": "Mới đăng bài",
-  "createAGroup": "Tạo nhóm"
+  "createAGroup": "Tạo nhóm",
+  "posts": "Bài viết",
+  "pending": "Đang chờ",
+  "leaveGroup": "Rời nhóm",
+  "joinGroup": "Tham gia nhóm"
 }

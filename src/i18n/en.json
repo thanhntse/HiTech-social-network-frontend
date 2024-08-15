@@ -68,5 +68,9 @@
   "lastCreate": "Last create",
   "lastJoin": "Last join",
   "lastPost": "Last post",
-  "createAGroup": "Create a Group"
+  "createAGroup": "Create a Group",
+  "posts": "Posts",
+  "pending": "Pending",
+  "leaveGroup": "Leave Group",
+  "joinGroup": "Join Group"
 }
