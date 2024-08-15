@@ -10,13 +10,13 @@ import {
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next';
 import Tab from '../../../components/tab/Tab';
-import { memberTabItems } from '../../../constant/all-tab-list';
+import { groupTabItems } from '../../../constant/all-tab-list';
 import Dropdown from '../../../components/dropdown/dropdown';
-import { filterFriendsOptions } from '../../../constant/all-filter-list';
+import { filterGroupsOptions } from '../../../constant/all-filter-list';
 
 type Props = {}
 
-export default function MemberList({ }: Props) {
+export default function GroupList({ }: Props) {
   const { t } = useTranslation();
 
   return (
@@ -64,13 +64,13 @@ export default function MemberList({ }: Props) {
           className='w-full flex flex-col justify-center items-start bg-white dark:bg-bg-secondary-dark rounded-lg shadow-gray-200 dark:shadow-bg-secondary-dark shadow-md p-8'
         >
           <Tab
-            items={memberTabItems}
+            items={groupTabItems}
             headerChildren={
               <>
                 <Typography>
                   {t('showBy')}:
                 </Typography>
-                <Dropdown options={filterFriendsOptions} />
+                <Dropdown options={filterGroupsOptions} />
               </>
             }
           />

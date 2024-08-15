@@ -5,6 +5,19 @@ export interface Option {
   label: string
 }
 
+export interface TabItemProps {
+  value: string,
+  label: string,
+  children: React.ReactNode
+}
+
+export interface SidebarItemProps {
+  id: number,
+  label: string,
+  path: string,
+  icon: React.ReactNode
+}
+
 export interface Image {
   id: number;
   imageNo: number;

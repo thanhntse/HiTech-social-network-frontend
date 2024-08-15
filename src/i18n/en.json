@@ -61,5 +61,11 @@
   "members": "Members",
   "searchMember": "Search Members...",
   "allMembers": "All Members",
-  "noMemberFound": "No member found!"
+  "noMemberFound": "No member found!",
+  "allGroups": "All Groups",
+  "myGroups": "My Groups",
+  "top3MostActiveGroups": "Top 3 most active groups",
+  "lastCreate": "Last create",
+  "lastJoin": "Last join",
+  "lastPost": "Last post"
 }
