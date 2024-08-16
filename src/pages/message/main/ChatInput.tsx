@@ -44,11 +44,17 @@ const ChatInput: React.FC = () => {
     }
   };
 
-  const [file, setFile] = useState<File | null>(null);
+  const [files, setFiles] = useState<File[]>([]);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files ? event.target.files[0] : null;
-    setFile(selectedFile);
+    if (selectedFile) {
+      setFiles((prevFiles) => [...prevFiles, selectedFile]);
+    }
+  };
+
+  const removeFileAtIndex = (index: number) => {
+    setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
   };
 
   const send = () => {
@@ -80,35 +86,42 @@ const ChatInput: React.FC = () => {
         </div>
 
         <RenderIf
-          ifTrue={file !== null}
+          ifTrue={files.length > 0}
         >
           <div
-            className='relative text-txt-primary-light dark:text-txt-primary-dark flex flex-col justify-center items-center'
+            className='flex items-center max-w-60 overflow-x-auto'
           >
-            <File
-              className='w-20 h-20'
-              strokeWidth={1}
-            />
-            <span
-              className='text-[8px] leading-none truncate max-w-16'
-            >
-              {file?.name}
-            </span>
-            <span
-              className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xs font-semibold uppercase'
-            >
-              {file?.name.split('.').pop()}
-            </span>
-            <IconButton
-              className='absolute top-0 right-0 p-px text-red-500 hover:bg-red-50 dark:hover:bg-red-950'
-              onClick={
-                () => setFile(null)
-              }
-            >
-              <X
-                className='w-4 h-4'
-              />
-            </IconButton>
+            {files.map((file, index) => (
+              <div
+                key={index}
+                className='relative text-txt-primary-light dark:text-txt-primary-dark flex flex-col justify-center items-center'
+              >
+                <File
+                  className='w-20 h-20'
+                  strokeWidth={1}
+                />
+                <span
+                  className='text-[8px] leading-none truncate max-w-16'
+                >
+                  {file?.name}
+                </span>
+                <span
+                  className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xs font-semibold uppercase'
+                >
+                  {file?.name.split('.').pop()}
+                </span>
+                <IconButton
+                  className='absolute top-0 right-0 p-px text-red-500 hover:bg-red-50 dark:hover:bg-red-950'
+                  onClick={
+                    () => removeFileAtIndex(index)
+                  }
+                >
+                  <X
+                    className='w-4 h-4'
+                  />
+                </IconButton>
+              </div>
+            ))}
           </div>
         </RenderIf>
 
@@ -134,7 +147,7 @@ const ChatInput: React.FC = () => {
         <IconButton
           className='rounded-md bg-primary text-white w-10 h-10 disabled:bg-opacity-70 dark:disabled:bg-opacity-50'
           onClick={send}
-          disabled={!message && file === null}
+          disabled={!message && files.length === 0}
         >
           <Send
             className='w-5 h-5'

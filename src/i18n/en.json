@@ -74,5 +74,6 @@
   "leaveGroup": "Leave Group",
   "joinGroup": "Join Group",
   "writeAMessageToStartTheConversation": "Write a message to start the conversation",
-  "writeYourMessage": "Write your message..."
+  "writeYourMessage": "Write your message...",
+  "search": "Search..."
 }
