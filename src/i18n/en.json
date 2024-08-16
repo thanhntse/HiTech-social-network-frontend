@@ -73,5 +73,6 @@
   "pending": "Pending",
   "leaveGroup": "Leave Group",
   "joinGroup": "Join Group",
-  "writeAMessageToStartTheConversation": "Write a message to start the conversation"
+  "writeAMessageToStartTheConversation": "Write a message to start the conversation",
+  "writeYourMessage": "Write your message..."
 }
