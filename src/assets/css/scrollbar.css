@@ -15,6 +15,14 @@
   background: #07142e;
 }
 
+#root ::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+.dark #root ::-webkit-scrollbar-track {
+  background: inherit;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #2f65b9;
   border-radius: 10px;
