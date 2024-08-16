@@ -19,10 +19,12 @@ export default function MessageSidebarTab({ }: Props) {
   return (
     <>
       <Box
-        className='w-full bg-white dark:bg-bg-secondary-dark rounded-md flex flex-col gap-3 h-[500px]'
+        className='w-full bg-white dark:bg-bg-secondary-dark rounded-md flex flex-col gap-3 h-[474px]'
       >
-        <Tabs defaultValue={1}>
-          <TabsList className="flex font-primary items-center justify-center content-between p-3 gap-1">
+        <Tabs defaultValue={1}
+          className='flex flex-col h-full'
+        >
+          <TabsList className="w-full flex font-primary items-center justify-center content-between p-3 gap-1">
             <Tab
               slotProps={{
                 root: ({ selected, disabled }) => ({
@@ -76,13 +78,13 @@ export default function MessageSidebarTab({ }: Props) {
             </Tab>
           </TabsList>
 
-          <TabPanel className="w-full font-primary text-sm" value={1}>
+          <TabPanel className="flex-1 overflow-y-auto w-full font-primary text-sm" value={1}>
             <MessagesTab />
           </TabPanel>
-          <TabPanel className="w-full font-primary text-sm" value={2}>
+          <TabPanel className="flex-1 overflow-y-auto w-full font-primary text-sm" value={2}>
             <FriendsTab />
           </TabPanel>
-          <TabPanel className="w-full font-primary text-sm" value={3}>
+          <TabPanel className="flex-1 overflow-y-auto w-full font-primary text-sm" value={3}>
             <GroupsTab />
           </TabPanel>
         </Tabs>
