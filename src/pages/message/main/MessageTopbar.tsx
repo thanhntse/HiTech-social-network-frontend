@@ -17,7 +17,7 @@ export default function MessageTopbar({ }: Props) {
   return (
     <>
       <Box
-        className='w-full flex justify-between items-center bg-white dark:bg-bg-secondary-dark rounded-md p-3'
+        className='w-full flex justify-between items-center bg-white dark:bg-bg-secondary-dark rounded-md p-3.5'
       >
         <Box
           className='w-full flex gap-1 items-center'
