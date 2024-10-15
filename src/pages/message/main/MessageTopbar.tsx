@@ -35,7 +35,9 @@ export default function MessageTopbar({ }: Props) {
               src="https://material-ui.com/static/images/avatar/1.jpg"
               className="w-9 h-9"
             />
-            <Typography>
+            <Typography
+              className='font-medium'
+            >
               Thanh Nguyen
             </Typography>
           </div>

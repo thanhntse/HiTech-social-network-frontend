@@ -165,7 +165,8 @@ export default function Sidebar({ open, setClose, mode, toggleMode }: Props) {
           className="flex-1 flex justify-center items-end"
         >
           <Box
-            className="w-full bg-primary-light dark:bg-bg-primary-dark flex justify-center items-center gap-10 h-16 p-4 m-4 rounded-lg"
+            className={`w-full bg-primary-light dark:bg-bg-primary-dark flex justify-center items-center
+              ${open ? "h-16 gap-10 p-4 m-4 rounded-lg" : "gap-4 py-4 flex-col"}`}
           >
             <ModeSwitch
               mode={mode}

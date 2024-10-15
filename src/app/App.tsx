@@ -15,7 +15,7 @@ import Activity from "../pages/activity/Activity";
 import Group from "../pages/group/Group";
 import Message from "../pages/message/Message";
 import Member from "../pages/member/Member";
-import Test from "../Test";
+import TestPage from "../TestPage";
 
 function App() {
   const storedMode = localStorage.getItem('themeMode') || 'light';
@@ -78,7 +78,7 @@ function App() {
           </Route>
 
           <Route path="*" element={<NoPage />} />
-          <Route path="/test" element={<Test />} />
+          <Route path="/test" element={<TestPage />} />
 
         </Routes>
       </BrowserRouter>
