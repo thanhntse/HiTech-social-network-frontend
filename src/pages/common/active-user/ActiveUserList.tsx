@@ -4,7 +4,7 @@ import {
 } from '@mui/material'
 import ActiveUserCard from './ActiveUserCard'
 import { useTranslation } from 'react-i18next'
-import activeUsers from '../../../constant/demo-active-user'
+import activeUsers from '../../../constants/demo-active-user'
 import { useState } from 'react'
 import Pagination from '../../../components/pagination'
 import RenderIf from '../../../components/RenderIf'

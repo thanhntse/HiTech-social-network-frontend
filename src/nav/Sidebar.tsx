@@ -17,7 +17,7 @@ import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import LanguageSelector from '../components/LanguageSelector';
 import ModeSwitch from '../components/theme-mode-switch/ModeSwitch';
-import sideBarItem from '../constant/sidebar-item';
+import sideBarItem from '../constants/sidebar-item';
 
 type Props = {
   open: boolean;

@@ -9,7 +9,7 @@ const NoPage: React.FC = () => {
         or is temporarily unavailable.
       </p>
       <a
-        href="/"
+        href="/activity"
         className="text-primary no-underline dark:text-primary-dark transition duration-300"
       >
         Go to Home

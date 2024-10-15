@@ -5,13 +5,13 @@ import {
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import InputText from '../components/input-text';
-import Password from '../components/password';
+import InputText from '../../components/input-text';
+import Password from '../../components/password';
 import {
   Mail,
   User
 } from 'lucide-react';
-import Button from '../components/button';
+import Button from '../../components/button';
 
 type Props = {}
 

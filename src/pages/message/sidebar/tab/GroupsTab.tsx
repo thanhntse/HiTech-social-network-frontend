@@ -7,7 +7,7 @@ import {
 import {
   Home,
 } from 'lucide-react'
-import groupList from '../../../../constant/demo-group-list'
+import groupList from '../../../../constants/demo-group-list'
 
 type Props = {}
 

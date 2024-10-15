@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import Pagination from '../../../components/pagination';
 import { SearchX } from 'lucide-react';
-import groupList from '../../../constant/demo-group-list';
+import groupList from '../../../constants/demo-group-list';
 import GroupCard from './GroupCard';
 
 type Props = {}

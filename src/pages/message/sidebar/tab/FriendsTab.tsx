@@ -4,7 +4,7 @@ import {
   IconButton,
   Typography
 } from '@mui/material'
-import friendList from '../../../../constant/demo-friend-list'
+import friendList from '../../../../constants/demo-friend-list'
 import {
   User
 } from 'lucide-react'

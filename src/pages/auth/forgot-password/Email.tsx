@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import InputText from '../../components/input-text'
-import Button from '../../components/button'
+import InputText from '../../../components/input-text'
+import Button from '../../../components/button'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import {

@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import Button from '../../components/button'
+import Button from '../../../components/button'
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import Password from '../../components/password';
-import PinCode from '../../components/PinCode';
-import SpinnerLoading from '../../components/SpinnerLoading';
+import Password from '../../../components/password';
+import PinCode from '../../../components/PinCode';
+import SpinnerLoading from '../../../components/SpinnerLoading';
 
 type Props = {}
 

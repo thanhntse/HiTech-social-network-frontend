@@ -10,9 +10,9 @@ import {
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next';
 import Tab from '../../../components/tab/Tab';
-import { memberTabItems } from '../../../constant/all-tab-list';
+import { memberTabItems } from '../../../constants/all-tab-list';
 import Dropdown from '../../../components/dropdown/dropdown';
-import { filterFriendsOptions } from '../../../constant/all-filter-list';
+import { filterFriendsOptions } from '../../../constants/all-filter-list';
 
 type Props = {}
 

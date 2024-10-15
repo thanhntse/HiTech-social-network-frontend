@@ -5,7 +5,7 @@ import {
 import React from 'react'
 import PostCard from './PostCard';
 import RenderIf from '../../../components/RenderIf';
-import posts from '../../../constant/demo-posts-list';
+import posts from '../../../constants/demo-posts-list';
 import { SearchX } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 

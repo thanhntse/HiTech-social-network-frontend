@@ -4,7 +4,7 @@ import {
 } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import AuthCarousel from "../components/carousel/AuthCarousel";
-import images from "../constant/auth-img";
+import images from "../constants/auth-img";
 import LanguageSelector from "../components/LanguageSelector";
 import ModeSwitch from "../components/theme-mode-switch/ModeSwitch";
 

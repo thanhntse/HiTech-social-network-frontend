@@ -4,7 +4,7 @@ import {
 } from '@mui/material'
 import RenderIf from '../../../components/RenderIf'
 import { useTranslation } from 'react-i18next';
-import friendList from '../../../constant/demo-friend-list';
+import friendList from '../../../constants/demo-friend-list';
 import { useState } from 'react';
 import Pagination from '../../../components/pagination';
 import MemberCard from './MemberCard';

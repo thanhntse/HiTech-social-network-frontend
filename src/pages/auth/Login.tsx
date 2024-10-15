@@ -5,10 +5,10 @@ import {
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import InputText from '../components/input-text';
+import InputText from '../../components/input-text';
 import { User } from 'lucide-react';
-import Password from '../components/password';
-import Button from '../components/button';
+import Password from '../../components/password';
+import Button from '../../components/button';
 
 type Props = {}
 

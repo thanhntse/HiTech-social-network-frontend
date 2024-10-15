@@ -4,7 +4,7 @@ import {
 } from '@mui/material'
 import LatestActivityCard from './LatestActivityCard'
 import { useTranslation } from 'react-i18next'
-import latestActivities from '../../../constant/demo-latest-activity'
+import latestActivities from '../../../constants/demo-latest-activity'
 import { useState } from 'react'
 import RenderIf from '../../../components/RenderIf'
 import Pagination from '../../../components/pagination'

@@ -4,7 +4,7 @@ import {
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { Outlet, useNavigate } from 'react-router-dom';
-import Button from '../../components/button';
+import Button from '../../../components/button';
 
 type Props = {}
 

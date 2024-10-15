@@ -3,7 +3,7 @@ import {
   IconButton
 } from '@mui/material'
 import StoryCard from './StoryCard'
-import userStories from '../../../constant/demo-story-list'
+import userStories from '../../../constants/demo-story-list'
 import { useRef } from 'react';
 import {
   ChevronLeft,
